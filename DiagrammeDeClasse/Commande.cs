@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public class Commande
+{
+	private int No;
+	int NombreArticles;
+
+	public void SelectionDesArticles()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void IndiquerPreferance()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void EnregistrerCommande()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void Annuler()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void Valider()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void FaireLeSuivi()
+	{
+		throw new NotImplementedException();
+	}
+}
