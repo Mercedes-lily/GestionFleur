@@ -11,6 +11,53 @@ public abstract class Utilisateur
 	protected string adresse;
 	protected string telephone;
 
+	public string Nom
+	{
+		get
+		{
+			return this.nom;
+		}
+		set
+		{
+			this.nom = value;
+		}
+	}
+
+	public string Prenom
+	{
+		get
+		{
+			return this.prenom;
+		}
+		set
+		{
+			this.prenom = value;
+		}
+	}
+	public string Telephone
+	{
+		get
+		{
+			return this.telephone;
+		}
+		set
+		{
+			this.telephone = value;
+		}
+	}
+
+	public string Adresse
+	{
+		get
+		{
+			return this.adresse;
+		}
+		set
+		{
+			this.adresse = value;
+		}
+	}
+
 	public Utilisateur(string nom, string prenom, string adresse, string telephone)
 	{
 		this.nom = nom;
@@ -19,5 +66,5 @@ public abstract class Utilisateur
 		this.telephone = telephone;
 	}
 
-	public abstract void EnregistrerDonneesUtilisateur();
+	public abstract void EnregistrerDonneesUtilisateur(Utilisateur u);
 }

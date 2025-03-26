@@ -32,7 +32,7 @@ public class Proprietaire : Utilisateur, IVendeur, IFournisseur
 		return nouvelUtilisateur;
 	}
 
-	public override void EnregistrerDonneesUtilisateur()
+	public override void EnregistrerDonneesUtilisateur(Utilisateur p)
 	{
 		throw new NotImplementedException();
 	}

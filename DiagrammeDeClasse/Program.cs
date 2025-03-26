@@ -17,6 +17,8 @@ namespace DiagrammeDeClasse
 			P.AjouterUtilisateur("Jeanny", "Dupond", "789 rue des fleurs", "514-123-4567", "V123");
 
 			Fleur.ImporterDonnees("C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\fleurs_db.csv");
+			Commande commande = new Commande();
+			commande.SelectionDesArticles();
 		}
 	}
 }
