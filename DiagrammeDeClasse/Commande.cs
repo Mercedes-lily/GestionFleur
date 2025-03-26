@@ -128,7 +128,7 @@ public class Commande
 
 	public bool Continuer()
 	{
-		Console.WriteLine("Voulez-vous ajouter d'autres articles à votre commande? O/N");
+		Console.WriteLine("Voulez-vous ajouter d'autres articles de cette catégorie à votre commande? O/N");
 		string reponse = Console.ReadLine();
 		while (true)
 		{

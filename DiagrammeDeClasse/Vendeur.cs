@@ -26,7 +26,7 @@ public class Vendeur : Utilisateur, IVendeur
 		throw new NotImplementedException();
 	}
 
-	public override void EnregistrerDonneesUtilisateur()
+	public override void EnregistrerDonneesUtilisateur(Utilisateur v)
 	{
 		throw new NotImplementedException();
 	}	

@@ -13,7 +13,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 		this.noFournisseur = noFournisseur;
 	}
 
-	public override void EnregistrerDonneesUtilisateur()
+	public override void EnregistrerDonneesUtilisateur(Utilisateur f)
 	{
 		throw new NotImplementedException();
 	}
