@@ -11,7 +11,11 @@ public class Carte
 
 	public Carte()
 	{
-		this.message = string.Empty;
+		this.message = "Revenez-nous vite en pleine forme! Amitiés ";
+	}
+	public Carte(string message)
+	{
+		this.message = message;
 	}
 	public void InscrireMessage()
 	{
