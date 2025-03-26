@@ -11,6 +11,14 @@ public class Fleur : Article
 	private string couleur;
 	private string description;
 
+	public Fleur(float prixUnitaire, int code, string nom, string couleur, string description) : base(prixUnitaire)
+	{
+		this.code = code;
+		this.nom = nom;
+		this.couleur = couleur;
+		this.description = description;
+	}
+
 	public void ImporterDonnées()
 	{
 		throw new NotImplementedException();

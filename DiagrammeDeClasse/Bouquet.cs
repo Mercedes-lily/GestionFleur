@@ -8,7 +8,9 @@ public class Bouquet : Article
 {
 	const int labeur = 2;
 	const int coutCarte = 1;
+	Carte carte = new Carte();
 
+	public Bouquet()
 	public void CalculerPrix()
 	{
 		throw new NotImplementedException();

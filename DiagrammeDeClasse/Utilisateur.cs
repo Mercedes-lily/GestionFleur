@@ -11,5 +11,13 @@ public abstract class Utilisateur
 	protected string adresse;
 	protected string telephone;
 
+	public Utilisateur(string nom, string prenom, string adresse, string telephone)
+	{
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.telephone = telephone;
+	}
+
 	public abstract void EnregistrerDonneesUtilisateur();
 }
