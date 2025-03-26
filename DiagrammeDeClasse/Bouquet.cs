@@ -9,6 +9,7 @@ public class Bouquet : Article
 	const int labeur = 2;
 	const int coutCarte = 1;
 	Carte carte = new Carte();
+	List<Article> fleurs = new List<Article>();
 
 	public Bouquet(float prixUnitaire) : base(prixUnitaire)
 	{
@@ -24,7 +25,7 @@ public class Bouquet : Article
 		throw new NotImplementedException();
 	}
 
-	public void EnregistrerModèle()
+	public void EnregistrerModele()
 	{
 		throw new NotImplementedException();
 	}

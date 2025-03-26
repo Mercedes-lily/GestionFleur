@@ -19,7 +19,7 @@ public class Fleur : Article
 		this.description = description;
 	}
 
-	public void ImporterDonnées()
+	public void ImporterDonnees()
 	{
 		throw new NotImplementedException();
 	}
