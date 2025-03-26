@@ -10,7 +10,10 @@ public class Bouquet : Article
 	const int coutCarte = 1;
 	Carte carte = new Carte();
 
-	public Bouquet()
+	public Bouquet(float prixUnitaire) : base(prixUnitaire)
+	{
+
+	}
 	public void CalculerPrix()
 	{
 		throw new NotImplementedException();
