@@ -8,7 +8,12 @@ public class Commande
 {
 	private int No;
 	int NombreArticles;
-
+	
+	public Commande(int no, int nombre)
+	{
+		this.No = no;
+		this.NombreArticles = nombre;
+	}
 	public void SelectionDesArticles()
 	{
 		throw new NotImplementedException();
