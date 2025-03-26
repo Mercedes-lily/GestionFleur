@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,9 @@ public class Client : Utilisateur
 	}
 	public void PasserCommande()
 	{
-		throw new NotImplementedException();
+		Console.WriteLine("Bonjour {0}, choissions ensembles les fleurs de votre commande.");
+		Commande commande = new Commande();
+		commande.SelectionDesArticles();
 	}
 
 	public override void EnregistrerDonneesUtilisateur()
