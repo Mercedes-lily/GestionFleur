@@ -8,7 +8,7 @@
     <RootNamespace>GestionFleur.DiagrammeDeClasse</RootNamespace>
     <AssemblyName>DiagrammeDeClasse</AssemblyName>
     <ProjectGuid>{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -28,6 +28,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=33.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
@@ -68,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Vendeur.cs" />
     <Compile Include="Fleur.cs" />
     <Compile Include="Bouquet.cs" />
