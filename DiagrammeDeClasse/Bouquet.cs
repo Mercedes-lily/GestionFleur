@@ -11,7 +11,7 @@ public class Bouquet : Article
 	Carte carte = new Carte();
 	List<Article> fleurs = new List<Article>();
 
-	public Bouquet(float prixUnitaire) : base(prixUnitaire)
+	public Bouquet(string prixUnitaire) : base(prixUnitaire)
 	{
 
 	}

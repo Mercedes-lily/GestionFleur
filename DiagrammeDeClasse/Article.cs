@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 public abstract class Article
 {
-	protected float prixUnitaire;
+	protected string prixUnitaire;
 
-	public Article(float prixUnitaire)
+	public Article()
+	{
+
+	}
+	public Article(string prixUnitaire)
 	{
 		this.prixUnitaire = prixUnitaire;
 	}
