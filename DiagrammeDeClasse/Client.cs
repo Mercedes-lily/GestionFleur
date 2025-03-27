@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Json.Net;
 using System.IO;
+using System.Xml;
 
 public class Client : Utilisateur
 {
 	private string noClient;
-
+	static List<Client> Clients = new List<Client>();
 	public string NoClient
 	{
 		get
@@ -29,6 +30,7 @@ public class Client : Utilisateur
 
 		//Comparer s<il existe deja
 		Console.WriteLine("Client créé");
+		Clients.Add(this);
 		EnregistrerDonneesUtilisateur(this);
 	}
 	public void PasserCommande()
@@ -43,9 +45,9 @@ public class Client : Utilisateur
 		string PathFile = "../../Client/Client.json";
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
-		string ClientinJSON = File.ReadAllText(PathFile);
-			ClientinJSON += JsonNet.Serialize(c);
-		File.WriteAllText(PathFile, ClientinJSON);
+		Console.WriteLine("Enregistrement des données du client");
+		string ClientJSON = JsonNet.Serialize(Clients);
+	//Ajouter une separation avec des \n
+		File.WriteAllText(PathFile, ClientJSON);
 	}
-
 }

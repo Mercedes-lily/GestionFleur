@@ -19,23 +19,31 @@ public class Commande
 		this.NombreArticles = 0;
 
 	}
+
+	public void choixAffichageFleurs()
+	{
+		Console.WriteLine("Nous allons ajouter des fleurs à votre commandes");
+		Console.WriteLine("Veuillez choisir une des options suivantes");
+		Console.WriteLine("A-Afficher les fleurs par couleur");
+		Console.WriteLine("B-Afficher les fleurs par prix ascendant");
+		Console.WriteLine("C-Afficher les fleurs par prix descendant");
+	}
+
+	//retourne la liste des articles analysés
 	public void SelectionDesArticles()
 	{
 		bool commandeEnCours = true;
-		Console.WriteLine("Selection des articles");
-		Console.WriteLine("Voulez-vous ajouter des fleurs individuels ou des bouquets F/B");
-		String reponse = Console.ReadLine();
 		while (commandeEnCours)
 		{
+			Console.WriteLine("Selection des articles");
+			Console.WriteLine("Voulez-vous ajouter des fleurs individuels ou des bouquets F/B");
+			Console.WriteLine("Pour terminer l'ajout d'article, veuillez entrer N");
+			string reponse = Console.ReadLine();
 			if (reponse == "F" || reponse == "f")
 			{
 				bool ChoixFleurEnCours = true;
 				while (ChoixFleurEnCours) {
-					Console.WriteLine("Nous allons ajouter des fleurs à votre commandes");
-					Console.WriteLine("Veuiller choisir une des options suivantes");
-					Console.WriteLine("A-Afficher les fleurs par couleur");
-					Console.WriteLine("B-Afficher les fleurs par prix ascendant");
-					Console.WriteLine("C-Afficher les fleurs par prix descendant");
+					choixAffichageFleurs();
 					reponse = Console.ReadLine();
 					if (reponse == "A" || reponse == "a")
 					{
@@ -48,7 +56,7 @@ public class Commande
 							reponse = Console.ReadLine();
 							IDictionary<string, int> FleurParser = ParserChoixFleur(reponse);
 							//Traitement de la réponse
-							ChoixFleurEnCours = Continuer();
+							ChoixFleurEnCours = Continuer("Voulez-vous ajouter d'autres fleurs individuelles à votre commande? O/N");
 						}
 					}
 					else if (reponse == "B" || reponse == "b")
@@ -62,7 +70,7 @@ public class Commande
 							reponse = Console.ReadLine();
 							IDictionary<string, int> FleurParser = ParserChoixFleur(reponse);
 							//Traitement de la réponse
-							ChoixFleurEnCours = Continuer();
+							ChoixFleurEnCours = Continuer("Voulez-vous ajouter d'autres fleurs individuelles à votre commande? O/N");
 						}
 					}
 					else if (reponse == "C" || reponse == "c")
@@ -76,23 +84,32 @@ public class Commande
 							reponse = Console.ReadLine();
 							IDictionary<string, int> FleurParser = ParserChoixFleur(reponse);
 							//Traitement de la réponse
-							ChoixFleurEnCours = Continuer();
+							ChoixFleurEnCours = Continuer("Voulez-vous ajouter d'autres fleurs individuelles à votre commande? O/N");
 						}
 					}
 					else
-					{
 						Console.WriteLine("Veuillez choisir une option entre A, B ou C");
-					}
 				}
 			}
 			else if (reponse == "B" || reponse == "b")
 			{
-				Console.WriteLine("Ajouter des bouquets");
+				bool ChoixBouquetEnCours = true;
+				while (ChoixBouquetEnCours)
+				{
+					Console.WriteLine("Voici les bouquets disponibles pour la sélection");
+					//Afficher les bouquet qui ont été enregistrées dans le fichier json
+					Console.WriteLine("Veuillez entrer le numéro des bouquets que vous désirez ajouter à votre commande ainsi que le nombre d'exemplaire de chacun.");
+					Console.WriteLine("Voici un exemple : B01 5, B13 2");
+					reponse = Console.ReadLine();
+					IDictionary<string, int> FleurParser = ParserChoixFleur(reponse);
+					//Traitement de la réponse
+					ChoixBouquetEnCours = Continuer("Voulez-vous ajouter d'autres bouquets à votre commande? O/N");
+				}
 			}
+			else if(reponse == "N" || reponse == "n")
+				commandeEnCours = false;
 			else
-			{
 				Console.WriteLine("Choix invalide");
-			}
 		}
 	}
 
@@ -126,9 +143,9 @@ public class Commande
 		Console.WriteLine("Les details");
 	}
 
-	public bool Continuer()
+	public bool Continuer(string str)
 	{
-		Console.WriteLine("Voulez-vous ajouter d'autres articles de cette catégorie à votre commande? O/N");
+		Console.WriteLine(str);
 		string reponse = Console.ReadLine();
 		while (true)
 		{
@@ -154,10 +171,14 @@ public class Commande
 			if(sSplit.Length == 2)
 				FleurParser.Add(sSplit[0], int.Parse(sSplit[1]));
 			else if (sSplit.Length == 1)
-				FleurParser.Add(sSplit[0], int.Parse(sSplit[1]));
+				FleurParser.Add(sSplit[0], 0);
 			else 
 				continue;
 		}
 		return FleurParser;
+	}
+	public void VerificationCommande(IDictionary<string, int> ArticlesCommmande)
+	{
+
 	}
 }
