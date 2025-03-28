@@ -1,12 +1,15 @@
+using Json.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 public class Vendeur : Utilisateur, IVendeur
 {
 	private string noVendeur;
+	private static List<Vendeur> vendeurs = new List<Vendeur>();
 	public Vendeur(string n, string p, string addr, string tel, string no) : base(n, p, addr, tel)
 	{
 		this.nom = n;
@@ -28,6 +31,12 @@ public class Vendeur : Utilisateur, IVendeur
 
 	public override void EnregistrerDonneesUtilisateur(Utilisateur v)
 	{
-		throw new NotImplementedException();
+		string PathFile = "../../Vendeurs/Vendeurs.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données du client");
+		string ClientJSON = JsonNet.Serialize(vendeurs);
+		//Ajouter une separation avec des \n
+		File.WriteAllText(PathFile, ClientJSON);
 	}	
 }
