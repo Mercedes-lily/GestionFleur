@@ -18,7 +18,7 @@ public class Fleur : Article
 
 	public Fleur(): base()
 	{ }
-	public Fleur(string nom, string prixUnitaire,  string couleur, string description) : base(prixUnitaire)
+	public Fleur(string nom, double prixUnitaire,  string couleur, string description) : base(prixUnitaire)
 	{
 		this.nom = nom;
 		this.couleur = couleur;
@@ -27,7 +27,6 @@ public class Fleur : Article
 	public void Afficher()
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");
-		
 	}
 
 	static public void ImporterDonnees(string path)
@@ -37,17 +36,11 @@ public class Fleur : Article
 		{
 			csv.Context.RegisterClassMap<FleurMap>();
 			var records = csv.GetRecords<Fleur>();
-
 			foreach (var record in records)
 			{
-				record.Afficher();
 				fleurs.Add(record);
 			}
-
 		}
-		
-
-
 	}
 
 	public sealed class FleurMap : ClassMap<Fleur>

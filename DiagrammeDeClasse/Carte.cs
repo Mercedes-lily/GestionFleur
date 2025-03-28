@@ -9,16 +9,24 @@ public class Carte
 {
 	private string message;
 
+	public string Message
+	{
+		get 
+		{ 
+			return message; 
+		}
+		set 
+		{
+			if (!string.IsNullOrEmpty(value))
+				message = value; 
+		}
+	}
 	public Carte()
 	{
 		this.message = "Revenez-nous vite en pleine forme! Amitiés ";
 	}
-	public Carte(string message)
-	{
-		this.message = message;
-	}
 	public void InscrireMessage()
 	{
-		throw new NotImplementedException();
+		Message = Console.ReadLine();
 	}
 }
