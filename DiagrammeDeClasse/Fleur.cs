@@ -24,6 +24,12 @@ public class Fleur : Article
 		this.couleur = couleur;
 		this.description = description;
 	}
+
+	public static List<Fleur> Fleurs { get => fleurs;}
+
+	public string Nom { get => nom;}
+	public string Description { get => description; }
+	public string Couleur { get => couleur;}
 	public void Afficher()
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");

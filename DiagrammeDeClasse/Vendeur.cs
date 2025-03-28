@@ -10,6 +10,24 @@ public class Vendeur : Utilisateur, IVendeur
 {
 	private string noVendeur;
 	private static List<Vendeur> vendeurs = new List<Vendeur>();
+
+	public string NoVendeur
+	{
+		get
+		{
+			return this.noVendeur;
+		}
+		set
+		{
+			this.noVendeur = value;
+		}
+	}
+
+	public static List<Vendeur> getVendeurs()
+	{
+		return vendeurs;
+	}
+
 	public Vendeur(string n, string p, string addr, string tel, string no) : base(n, p, addr, tel)
 	{
 		this.nom = n;

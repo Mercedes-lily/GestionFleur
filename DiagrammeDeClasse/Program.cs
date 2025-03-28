@@ -12,11 +12,11 @@ namespace DiagrammeDeClasse
 		static public void Main()
 		{
 			Proprietaire P = new Proprietaire("Jean", "Dupont", "123 rue des fleurs", "514-123-4567");
-			P.AjouterUtilisateur("Jeanne", "Duponte", "456 rue des fleurs", "514-123-4567", "C123");
-			P.AjouterUtilisateur("Jeanne", "Duponte", "456 rue des fleurs", "514-123-4567", "F123");
-			P.AjouterUtilisateur("Jeanny", "Dupond", "789 rue des fleurs", "514-123-4567", "V123");
+			P.AjouterUtilisateur();
+			Client client = new Client("Jean", "Dupont", "123 rue des fleurs", "514-123-4567", "C123");
 			Fleur.ImporterDonnees("..\\..\\fleurs_db.csv");
-			Bouquet bouquet = new Bouquet();
+			client.PasserCommande();
+			//Bouquet bouquet = new Bouquet();
 			//Commande commande = new Commande();
 			//commande.SelectionDesArticles();
 		}
