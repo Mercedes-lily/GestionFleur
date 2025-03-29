@@ -14,6 +14,7 @@ public class Fleur : Article
 	private string nom;
 	private string couleur;
 	private string description;
+	private int quantite = 10;
 	static private List<Fleur> fleurs = new List<Fleur>();
 
 	public Fleur(): base()
@@ -24,17 +25,15 @@ public class Fleur : Article
 		this.couleur = couleur;
 		this.description = description;
 	}
-
-	public static List<Fleur> Fleurs { get => fleurs;}
-
-	public string Nom { get => nom;}
-	public string Description { get => description; }
-	public string Couleur { get => couleur;}
+	public int Quantite { get { return quantite; } set { quantite = value; } }
+	public static List<Fleur> Fleurs { get { return fleurs; } }
+	public string Nom { get { return nom; } }
+	public string Description { get { return description; } }
+	public string Couleur { get { return couleur; } }
 	public void Afficher()
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");
 	}
-
 	static public void ImporterDonnees(string path)
 	{	
 		using (var reader = new StreamReader(path))
@@ -48,7 +47,6 @@ public class Fleur : Article
 			}
 		}
 	}
-
 	public sealed class FleurMap : ClassMap<Fleur>
 	{
 		public FleurMap()

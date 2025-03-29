@@ -28,8 +28,13 @@ public class Fournisseur : Utilisateur, IFournisseur
 		//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);
 	}
-	public void EffectuerApprovisionnement()
+	public void EffectuerApprovisionnement(Fleur fleur)
 	{
-		throw new NotImplementedException();
+		List<Fleur> fleurs = Fleur.Fleurs;
+		foreach (Fleur f in fleurs)
+		{
+			while (f.Quantite < 10)
+				f.Quantite++;
+		}
 	}
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 public class Carte
 {
-	private string message;
+	private string message = "";
 
 	public string Message
 	{
@@ -23,10 +23,6 @@ public class Carte
 	}
 	public Carte()
 	{
-		this.message = "Revenez-nous vite en pleine forme! Amitiés ";
-	}
-	public void InscrireMessage()
-	{
-		Message = Console.ReadLine();
+
 	}
 }

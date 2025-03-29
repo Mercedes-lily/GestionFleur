@@ -128,9 +128,9 @@ public class Commande
 	public bool Continuer(string str)
 	{
 		Console.WriteLine(str);
-		string reponse = Console.ReadLine();
 		while (true)
 		{
+			string reponse = Console.ReadLine();
 			if (reponse == "O" || reponse == "o")
 				return (true);
 			else if (reponse == "N" || reponse == "n")

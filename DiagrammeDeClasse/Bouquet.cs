@@ -1,5 +1,8 @@
+using Json.Net;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,32 +10,38 @@ using System.Xml.Schema;
 
 public class Bouquet : Article
 {
-	const int labeur = 2;
-	const int coutCarte = 1;
-	Carte carte = new Carte();
-	List<Fleur> fleurs = new List<Fleur>();
+	private const int labeur = 2;
+	private const int coutCarte = 1;
+	private string noBouquet;
+	private Carte carte = new Carte();
+	private List<Fleur> fleurs = new List<Fleur>();
+	static private List<Bouquet> bouquetsPredefini = new List<Bouquet>();
 
-	public Bouquet()
+	public Bouquet(string noBouquet)
 	{
 		prixUnitaire = labeur + coutCarte;
-		Console.WriteLine("Veuillez entrer un message pour la carte puis appuyer sur Entrée. Pour le message par défaut, laisser vider et appuyer sur Entrée.");
-		this.carte.InscrireMessage();
-	}
-	public void CalculerPrix()
-	{
-		foreach (var fleur in fleurs)
-		{
-			prixUnitaire += fleur.PrixUnitaire;
-		}
+		this.noBouquet = noBouquet;
 	}
 	//Parcourir la liste des fleurs et ajouter une copie de la fleur choisie dans le bouquet
-	public void AjouterFleurs()
+	public void AjouterFleurs(Fleur fleur)
 	{
-		throw new NotImplementedException();
+		fleurs.Add(fleur);
+		prixUnitaire += fleur.PrixUnitaire;
 	}
-
 	public void EnregistrerModele()
 	{
-		throw new NotImplementedException();
+		string PathFile = "../../Modele/Modeles.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données du modele de bouquet");
+		string BouquetJSON = JsonNet.Serialize(bouquetsPredefini);
+		//Ajouter une separation avec des \n
+		File.WriteAllText(PathFile, BouquetJSON);
+	}
+	public void AjouterMessageCarte()
+	{
+		Console.WriteLine("Quel message voulez-vous mettre sur la carte?");
+		string message = Console.ReadLine();
+		carte.Message = message;
 	}
 }
