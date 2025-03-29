@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 public interface IFournisseur
 {
-	void EffectuerApprovisionnement();
+	void EffectuerApprovisionnement(Fleur fleur);
 }

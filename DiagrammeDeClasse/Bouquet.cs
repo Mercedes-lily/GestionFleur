@@ -44,4 +44,15 @@ public class Bouquet : Article
 		string message = Console.ReadLine();
 		carte.Message = message;
 	}
+
+	public void Afficher()
+	{
+		Console.WriteLine("Numero du bouquet: {0}", noBouquet);
+		Console.WriteLine("Message de la carte: {0}", carte.Message);
+		foreach (Fleur f in fleurs)
+		{
+			f.Afficher();
+		}
+		Console.WriteLine("Cout total du bouquet: {0}", PrixUnitaire);
+	}
 }
