@@ -12,16 +12,21 @@ public class Bouquet : Article
 {
 	private const int labeur = 2;
 	private const int coutCarte = 1;
+	static int dernierno = 0;
 	private string noBouquet;
 	private Carte carte = new Carte();
 	private List<Fleur> fleurs = new List<Fleur>();
 	static private List<Bouquet> bouquetsPredefini = new List<Bouquet>();
 
-	public Bouquet(string noBouquet)
+	public Bouquet()
 	{
 		prixUnitaire = labeur + coutCarte;
-		this.noBouquet = noBouquet;
+		this.noBouquet = "B" + (dernierno + 1).ToString();
+		dernierno++;
 	}
+
+	public string NoBouquet { get { return noBouquet; } }
+
 	//Parcourir la liste des fleurs et ajouter une copie de la fleur choisie dans le bouquet
 	public void AjouterFleurs(Fleur fleur)
 	{
@@ -45,7 +50,7 @@ public class Bouquet : Article
 		carte.Message = message;
 	}
 
-	public void Afficher()
+	public override void Afficher()
 	{
 		Console.WriteLine("Numero du bouquet: {0}", noBouquet);
 		Console.WriteLine("Message de la carte: {0}", carte.Message);
@@ -54,5 +59,68 @@ public class Bouquet : Article
 			f.Afficher();
 		}
 		Console.WriteLine("Cout total du bouquet: {0}", PrixUnitaire);
+	}
+
+	public static List<Bouquet> GetBouquetsPredefini()
+	{
+		return bouquetsPredefini;
+	}
+
+	public void CreerBouquetPersonnalise()
+	{
+		List<Fleur> fleurs = Fleur.Fleurs;
+		Console.WriteLine("Voici les fleurs disponibles");
+		foreach (Fleur f in fleurs)
+			f.Afficher();
+		bool ChoixFleurEnCours = true;
+		while (ChoixFleurEnCours)
+		{
+			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre bouquet");
+			string reponse = Console.ReadLine();
+			foreach (Fleur f in fleurs)
+			{
+				if (reponse.Trim(' ') == f.Nom)
+				{
+					int nb = 0;
+					while (nb <= 0)
+					{
+						Console.Write("Veuiller entrer la quantité : ");
+						reponse = Console.ReadLine();
+						for (int i = 0; i < reponse.Length; i++)
+							if (reponse[i] < '0' || reponse[i] > '9')
+								continue;
+						nb = int.Parse(reponse);
+					}
+					while (nb > 0)
+					{
+						AjouterFleurs(f);
+						nb--;
+						f.Quantite--;
+					}
+					break;
+				}
+			}
+			Console.WriteLine("Voulez-vous ajouter d'autres fleurs à votre bouquet? O/N");
+			reponse = Console.ReadLine();
+			if (reponse == "N" || reponse == "n")
+			{
+				ChoixFleurEnCours = false;
+				if(fleurs.Count() != 0)
+				{
+					bouquetsPredefini.Add(this);
+					AjouterMessageCarte();
+				}
+			}
+			else if (reponse == "O" || reponse == "o")
+				continue;
+			else
+				Console.WriteLine("Entrée invalide");
+		}
+		Afficher();
+	}
+
+	public static void ajouterBouquetListe(Bouquet bouquet)
+	{
+		bouquetsPredefini.Add(bouquet);
 	}
 }

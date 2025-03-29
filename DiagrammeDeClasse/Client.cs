@@ -37,7 +37,7 @@ public class Client : Utilisateur
 	{
 		Console.WriteLine("Bonjour {0} {1}, choissions ensembles les fleurs de votre commande.", prenom, nom);
 		Commande commande = new Commande();
-		commande.SelectionDesArticles();
+		commande.SelectionDesArticles(this);
 	}
 
 	public override void EnregistrerDonneesUtilisateur(Utilisateur c)

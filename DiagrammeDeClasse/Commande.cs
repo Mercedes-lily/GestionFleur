@@ -1,21 +1,21 @@
 using Json.Net;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.ComponentModel.Design;
+using System.Runtime.InteropServices;
 
 public class Commande
 {
 	private int no;
 	private static int dernierNumero = 0;
-	List<Article> ListeArticles = new List<Article>();
+	private List<Article> ListeArticles = new List<Article>();
 	private static List<Commande> commandes = new List<Commande>();
 	private Vendeur vendeur = null;
 	private Facture facture = null;
+	private Client client = null;
+
+
 
 	//Constructeur de Commande
 	public Commande()
@@ -23,6 +23,15 @@ public class Commande
 		this.no = dernierNumero + 1;
 		dernierNumero = this.no;
 	}
+
+	public static List<Commande> getListCommande()
+	{
+		return commandes;
+	}
+
+	public Vendeur Vendeur { get { return vendeur; } set { vendeur = value; } }
+	public int No { get { return no; }}
+
 
 	//Fonction qui permet d<enregister la commande dans un json
 	public void EnregistrerCommande()
@@ -37,37 +46,107 @@ public class Commande
 	}
 
 	//Fonction qui permet au client de sélectionner les articles qu'il veut commander
-	public void SelectionTypesFleurs(IDictionary<string, int> FleurParser)
+	public void SelectionTypesFleurs()
 	{
 		bool ChoixFleurEnCours = true;
+		List<Fleur> fleurs = Fleur.Fleurs;
 		while (ChoixFleurEnCours)
 		{
-			List<Fleur> fleurs = Fleur.Fleurs;
-			Console.WriteLine("Voici les fleurs disponibles pour la sélection");
-			foreach (Fleur f in fleurs)
-				f.Afficher();
-			Console.WriteLine("Veuillez entrer le nom des fleurs que nous désirer ajouter à votre commande ainsi que le nombre d'exemplaire de chacune.");
-			Console.WriteLine("Voici un exemple : Rose 5, Hortensia 2, Camélia 1");
+			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre commande");
 			string reponse = Console.ReadLine();
-			ParserChoixFleur(FleurParser, reponse);
-			Console.WriteLine("Voici les fleurs que vous avez choisi");
-			foreach (KeyValuePair<string, int> fleur in FleurParser)
-				Console.WriteLine("Fleur: {0} Nombre: {1}", fleur.Key, fleur.Value);
+			foreach (Fleur f in fleurs)
+			{
+				if (reponse.Trim(' ') == f.Nom)
+				{
+					int nb = 0;
+					while (nb <= 0)
+					{
+						Console.Write("Veuiller entrer la quantité : ");
+						reponse = Console.ReadLine();
+						for (int i = 0; i < reponse.Length; i++)
+							if (reponse[i] < '0' || reponse[i] > '9')
+								continue;
+						nb = int.Parse(reponse);
+					}
+					while (nb > 0)
+					{
+						ListeArticles.Add(f);
+						nb--;
+						f.Quantite--;
+					}
+					break;
+				}
+			}
 			ChoixFleurEnCours = Continuer("Voulez-vous ajouter d'autres fleurs individuelles à votre commande? O/N");
 		}
 	}
 
 	//Fonction qui permet au client de sélectionner les bouquets qu'il veut commander
-	public void SelectionBouquets(IDictionary<string, int> BouquetParser)
+	public void SelectionBouquets()
 	{
-		//personnaliser ou non
+		bool ChoixBouquetEnCours = true;
+		string reponse;
+		while (ChoixBouquetEnCours)
+		{
+			List<Bouquet> bouquets = Bouquet.GetBouquetsPredefini();
+
+			if(bouquets.Count() == 0)
+			{
+				Console.WriteLine("Aucun bouquet prédéfinis n'est disponible pour le moment");
+				Console.WriteLine("Voulez-vous créer un bouquet personnalisé? O/N");
+				reponse  = Console.ReadLine();
+				if (reponse == "O" || reponse == "o")
+				{
+					Bouquet bouquet = new Bouquet();
+					bouquet.CreerBouquetPersonnalise();
+					ListeArticles.Add(bouquet);
+				}
+				else if (reponse == "N" || reponse == "n")
+					ChoixBouquetEnCours = false;
+				else
+					Console.WriteLine("Entrée invalide");
+			}
+			else
+			{
+				Console.WriteLine("Voici les bouquet disponibles pour la sélection");
+				foreach (Bouquet b in bouquets)
+					b.Afficher();
+				Console.WriteLine("Veuillez entrer le numéro du bouquet que nous désirer ajouter ou P pour créer un bouquet personnalisé");
+				Console.WriteLine("Entrée N pour quitter");
+				reponse = Console.ReadLine();
+				if (reponse == "P" || reponse == "p")
+				{
+					Bouquet bouquet = new Bouquet();
+					bouquet.CreerBouquetPersonnalise();
+					ListeArticles.Add(bouquet);
+				}
+				else if (reponse == "N" || reponse == "n")
+					ChoixBouquetEnCours = false;
+				else
+				{
+					bool trouver = false;
+					foreach (Bouquet b in bouquets)
+					{
+						if (reponse.Trim(' ') == b.NoBouquet)
+						{
+							b.AjouterMessageCarte();
+							ListeArticles.Add(b);//enlever les lfeur de l<inventaire   attetion le message va etre changer s<il ajoute le mem bouquet
+							trouver = true;
+							b.Afficher();
+							break;
+						}
+					}
+					if (!trouver)
+						Console.WriteLine("Entrée invalide");
+				}
+			}
+			ChoixBouquetEnCours = Continuer("Voulez-vous ajouter d'autres bouquets à votre commande? O/N");
+		}
 	}
 
 	//Fonction qui permet au client de s/lectionner les articles qu'il veut commander
-	public void SelectionDesArticles()
+	public void SelectionDesArticles(Client c)
 	{
-		IDictionary<string, int> FleurParser = new Dictionary<string, int>();
-		IDictionary<string, int> BouquetParser = new Dictionary<string, int>();
 		bool commandeEnCours = true;
 		while (commandeEnCours)
 		{
@@ -76,27 +155,21 @@ public class Commande
 			Console.WriteLine("Pour terminer l'ajout d'article, veuillez entrer N");
 			string reponse = Console.ReadLine();
 			if (reponse == "F" || reponse == "f")
-				SelectionTypesFleurs(FleurParser);
+				SelectionTypesFleurs();
 			else if (reponse == "B" || reponse == "b")
-			{
-				bool ChoixBouquetEnCours = true;
-				while (ChoixBouquetEnCours)
-				{
-					Console.WriteLine("Voici les bouquets disponibles pour la sélection");
-					//Afficher les bouquet qui ont été enregistrées dans le fichier json
-					Console.WriteLine("Veuillez entrer le numéro des bouquets que vous désirez ajouter à votre commande ainsi que le nombre d'exemplaire de chacun.");
-					Console.WriteLine("Voici un exemple : B01 5, B13 2");
-					reponse = Console.ReadLine();
-					//Traitement de la réponse
-					ChoixBouquetEnCours = Continuer("Voulez-vous ajouter d'autres bouquets à votre commande? O/N");
-				}
-			}
+				SelectionBouquets();
 			else if(reponse == "N" || reponse == "n")
 				commandeEnCours = false;
 			else
 				Console.WriteLine("Choix invalide");
 		}
-		EntrerProduitCommande(FleurParser);
+		Console.WriteLine("Voici les articles de la commande");
+		if(ListeArticles.Count() != 0)
+		{
+			commandes.Add(this);
+			client = c;
+		}
+
 	}
 
 	public void IndiquerPreferance()
@@ -140,80 +213,6 @@ public class Commande
 		}
 	}
 
-	public void AjoutFleurDictionnaire(IDictionary<string, int> FleurParser, string nom, string nombre)
-	{
-		List<Fleur> fleurs = Fleur.Fleurs;
-		foreach (Fleur f in fleurs)
-		{
-			if (f.Nom == nom)
-			{
-				while (true)
-				{
-					if(FleurParser.ContainsKey(nom))
-					{
-						FleurParser[nom] += int.Parse(nombre);
-						break;
-					}
-					else
-					if (VerificationNombre(nombre) && int.Parse(nombre) > 0)
-					{
-						FleurParser.Add(nom, int.Parse(nombre));
-						break;
-					}
-					else
-					{
-						Console.WriteLine("La quantité est invalide pour la fleur {0}", f.Nom);
-						Console.WriteLine("Veuillez entrer une quantité valide");
-						nombre = Console.ReadLine();
-					}
-				}
-			}
-		}
-	}
-
-	//Parser la réponse de l'utilisateur pour les fleurs
-	public void ParserChoixFleur(IDictionary<string, int> FleurParser, string reponse)
-	{
-		
-		List<Fleur> fleurs = Fleur.Fleurs;
-		string[] reponsesplit = reponse.Split(',');
-		foreach (string s in reponsesplit)
-		{
-			if(s == "")
-				continue;
-			string strTrim = s.TrimEnd(' ').TrimStart(' ');
-			string[] sSplit = strTrim.Split(' ');
-			if (sSplit.Length == 2)
-				AjoutFleurDictionnaire(FleurParser, sSplit[0], sSplit[1]);
-			else if (sSplit.Length == 1)
-			{
-				if (FleurParser.ContainsKey(sSplit[0]))
-					continue;
-				foreach (Fleur f in fleurs)
-				{
-					if (f.Nom == sSplit[0])
-						FleurParser.Add(sSplit[0], -1);
-				}
-			}
-			else
-			{
-				string nom = "";
-				string nombre = "";
-				for (int i = 0;  i < sSplit.Length; i ++)
-				{
-					if (sSplit[i] == "")
-						continue;
-					if(nom == "")
-						nom = sSplit[i];
-					else if (nombre == "")
-						nombre = sSplit[i];
-				}
-				if(nom != "" && nombre != "")
-					AjoutFleurDictionnaire(FleurParser, nom, nombre);
-			}
-		}
-	}
-
 	//Verifie si c'est bien un nombre
 	public bool VerificationNombre(string str)
 	{
@@ -222,37 +221,36 @@ public class Commande
 				return false;
 		return true;
 	}
-
-	public void EntrerProduitCommande(IDictionary<string, int> FleurParser)
-	{
-		List<Fleur> fleurs = Fleur.Fleurs;
-		foreach (KeyValuePair<string, int> fleur in FleurParser)
-		{
-			int nombre = fleur.Value;
-			for(int i = 0; i < fleurs.Count(); i++)
-			{
-				if (fleurs[i].Nom == fleur.Key)
-				{
-					while (nombre > 0)
-					{
-						ListeArticles.Add(fleurs[i]);
-						nombre--;
-					}
-					break;
-				}
-			}
-		}
-	}
-
 	public void AttribuerVendeur()
 	{
-		if (vendeur == null)
+		string reponse;
+		if (Vendeur.getVendeurs().Count() == 0)
 		{
-			Console.WriteLine("Voici les commandes auquelles aucun vendeur n'a été attribué");
-
-			Console.WriteLine("Veuiller entrer le numéro du vendeur que vous voulez attribuer à la commande parmis les vendeurs disponibles");
-			List<Vendeur> vendeurs = Vendeur.getVendeurs();
+			Console.WriteLine("Aucun vendeur n'est disponible pour l'attribution");
+			return;
 		}
-
+		Console.WriteLine("Voici les vendeurs disponibles");
+		foreach (Vendeur v in Vendeur.getVendeurs())
+			Console.WriteLine(v.NoVendeur);
+		while(true)
+		{
+			Console.WriteLine("Veuillez entrer le numero du vendeur pour faire l'attribution");
+			reponse = Console.ReadLine().Trim(' ');
+			foreach (Vendeur v in Vendeur.getVendeurs())
+			{
+				if (v.NoVendeur == reponse)
+				{
+					Vendeur = v;
+					Console.WriteLine("Attribution effectuée");
+					return;
+				}
+			}
+			Console.WriteLine("Le numero entrer ne corespond pas a un vendeur");
+		}
+	}
+	public void GenererFactureClient()
+	{
+		facture = new Facture();
+		facture.SuiviFacture(client.NoClient, vendeur.NoVendeur, no, ListeArticles);
 	}
 }

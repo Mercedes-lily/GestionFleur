@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using CsvHelper.Configuration.Attributes;
+using System.Security.Cryptography.X509Certificates;
 
 public class Proprietaire : Utilisateur
 {
@@ -30,11 +31,12 @@ public class Proprietaire : Utilisateur
 		string telephone = Console.ReadLine();
 		Console.WriteLine("Veuillez entrer le numero de l'utilisateur");
 		string numero = Console.ReadLine();
-		while (numero[0] != 'C' || numero[0] == 'F' || numero[0] == 'V')
+		while (numero[0] != 'C' && numero[0] != 'F' && numero[0] != 'V')
 		{
 			Console.WriteLine("Le numero de l'utilisateur doit commencer par C pour un Client, F pour un Fournisseur ou V pour un Veudeur");
 			Console.WriteLine("Veuillez entrer le numero de l'utilisateur");
-			numero = Console.ReadLine();
+			numero = Console.ReadLine().Trim(' ');
+			;
 		}
 		if (numero[0] == 'C')
 			return(new Client(nom, prenom, adresse, telephone, numero));
@@ -69,8 +71,8 @@ public class Proprietaire : Utilisateur
 			string reponse = Console.ReadLine();
 			if (reponse.Trim(' ') == "1")
 				AjouterUtilisateur();
-			//else if (reponse.Trim(' ') == "2")
-			//	Commande.AttribuerVendeur();
+			else if (reponse.Trim(' ') == "2")
+				AttribuerVendeur();
 			//else if (reponse.Trim(' ') == "3")
 			//	Fleur.Approvisionner();
 			//else if (reponse.Trim(' ') == "4")
@@ -79,5 +81,57 @@ public class Proprietaire : Utilisateur
 				return;
 		}
 
+	}
+
+	//Attribuer les vendeurs aux commandes
+	public void AttribuerVendeur()
+	{
+		string reponse;
+		bool attribution = false;
+		while (!attribution)
+		{
+			if (afficherCommandeNonComplete() == 0)
+				return;
+			Console.WriteLine("Veuillez entrer le numero de la commande pour faire l'attribution");
+			Console.WriteLine("Entrée N pour quitter");
+			reponse = Console.ReadLine().Trim(' ');
+			if (reponse == "N" || reponse == "n")
+				return;
+			if (!(attribution = rechercheVendeur(reponse)))
+				Console.WriteLine("Commande introuvable");
+		}
+	}
+
+	//Affiche les commande non attribuer et retourne le nombre de commande non attribuer
+	public int afficherCommandeNonComplete()
+	{
+		int attributionNonComplete = 0;
+		Console.WriteLine("Voici les commandes qui n'ont pas de vendeur attribué");
+		
+		foreach (Commande c in Commande.getListCommande())
+		{
+			if (c.Vendeur == null)
+			{
+				attributionNonComplete++;
+				Console.WriteLine(c.No);
+			}
+		}
+		if (attributionNonComplete == 0)
+			Console.WriteLine("Toutes les commandes ont un vendeur attribué");
+		return attributionNonComplete;
+	}
+
+	//Recherche si le vendeur s/lectionne est une entr/e valide vendeur pour une commande
+	public bool rechercheVendeur(string str)
+	{
+		foreach (Commande c in Commande.getListCommande())
+		{
+			if (c.No == int.Parse(str))
+			{
+				c.AttribuerVendeur();
+				return true;
+			}
+		}
+		return false;
 	}
 }

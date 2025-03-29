@@ -20,4 +20,6 @@ public abstract class Article
 	{
 		this.prixUnitaire = prixUnitaire;
 	}
+
+	public abstract void Afficher();
 }

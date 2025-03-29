@@ -16,6 +16,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 	public Fournisseur(string nom, string prenom, string adresse, string telephone, string noFournisseur) : base(nom, prenom, adresse, telephone)
 	{
 		this.noFournisseur = noFournisseur;
+		fournisseurs.Add(this);
 	}
 
 	public override void EnregistrerDonneesUtilisateur(Utilisateur f)

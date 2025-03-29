@@ -30,7 +30,7 @@ public class Fleur : Article
 	public string Nom { get { return nom; } }
 	public string Description { get { return description; } }
 	public string Couleur { get { return couleur; } }
-	public void Afficher()
+	public override void Afficher()
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");
 	}

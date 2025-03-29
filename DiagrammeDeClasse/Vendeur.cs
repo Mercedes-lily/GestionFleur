@@ -35,6 +35,7 @@ public class Vendeur : Utilisateur, IVendeur
 		this.adresse = addr;
 		this.telephone = tel;
 		this.noVendeur = no;
+		vendeurs.Add(this);
 		Console.WriteLine("Vendeur créé");
 	}
 	public void GestionCommande()
