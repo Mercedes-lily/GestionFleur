@@ -1,32 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\dauph\\onedrive\\bureau\\universit\u00E9\\1-h25\\inf11207-programmation orient\u00E9e objet 2\\exercices et tp\\gestionfleur\\diagrammedeclasse\\commande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\commande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\dauph\\onedrive\\bureau\\universit\u00E9\\1-h25\\inf11207-programmation orient\u00E9e objet 2\\exercices et tp\\gestionfleur\\diagrammedeclasse\\fleur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\fleur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\dauph\\onedrive\\bureau\\universit\u00E9\\1-h25\\inf11207-programmation orient\u00E9e objet 2\\exercices et tp\\gestionfleur\\diagrammedeclasse\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\dauph\\onedrive\\bureau\\universit\u00E9\\1-h25\\inf11207-programmation orient\u00E9e objet 2\\exercices et tp\\gestionfleur\\diagrammedeclasse\\bouquet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\bouquet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\dauph\\onedrive\\bureau\\universit\u00E9\\1-h25\\inf11207-programmation orient\u00E9e objet 2\\exercices et tp\\gestionfleur\\diagrammedeclasse\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\dauph\\onedrive\\bureau\\universit\u00E9\\1-h25\\inf11207-programmation orient\u00E9e objet 2\\exercices et tp\\gestionfleur\\diagrammedeclasse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -34,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,84 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Article.cs",
-              "DocumentMoniker": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Article.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Article.cs",
-              "ToolTip": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Article.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Article.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T22:06:21.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Bouquet.cs",
-              "DocumentMoniker": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Bouquet.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Bouquet.cs",
-              "ToolTip": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Bouquet.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Bouquet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:37:11.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Client.cs",
-              "DocumentMoniker": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Client.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Client.cs",
-              "ToolTip": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Client.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Client.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T20:22:10.641Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Program.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Program.cs",
-              "ToolTip": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Program.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T20:21:26.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Fleur.cs",
-              "DocumentMoniker": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Fleur.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Fleur.cs",
-              "ToolTip": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Fleur.cs*",
-              "RelativeToolTip": "DiagrammeDeClasse\\Fleur.cs*",
-              "ViewState": "AgIAABMAAAAAAAAAAAAkwB4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T20:15:16.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Commande.cs",
-              "DocumentMoniker": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Commande.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Commande.cs",
-              "ToolTip": "C:\\Users\\dauph\\OneDrive\\Bureau\\Universit\u00E9\\1-H25\\INF11207-Programmation orient\u00E9e objet 2\\Exercices et TP\\GestionFleur\\DiagrammeDeClasse\\Commande.cs*",
-              "RelativeToolTip": "DiagrammeDeClasse\\Commande.cs*",
-              "ViewState": "AgIAAFcAAAAAAAAAAADwv2AAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T20:14:46.34Z",
-              "EditorCaption": ""
             }
           ]
         }
