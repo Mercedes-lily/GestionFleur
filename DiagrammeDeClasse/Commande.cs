@@ -226,19 +226,20 @@ public class Commande
 	public void EntrerProduitCommande(IDictionary<string, int> FleurParser)
 	{
 		List<Fleur> fleurs = Fleur.Fleurs;
-		(string, double, string, string) Caracteristiques = ("", 0, "", "");
 		foreach (KeyValuePair<string, int> fleur in FleurParser)
 		{
 			int nombre = fleur.Value;
-			foreach (Fleur f in fleurs)
+			for(int i = 0; i < fleurs.Count(); i++)
 			{
-				if (f.Nom == fleur.Key)
-					Caracteristiques = (f.Nom, f.PrixUnitaire, f.Couleur, f.Description);
-			}
-			while (nombre > 0)
-			{
-				ListeArticles.Add(new Fleur(Caracteristiques.Item1, Caracteristiques.Item2, Caracteristiques.Item3, Caracteristiques.Item4));
-				nombre--;
+				if (fleurs[i].Nom == fleur.Key)
+				{
+					while (nombre > 0)
+					{
+						ListeArticles.Add(fleurs[i]);
+						nombre--;
+					}
+					break;
+				}
 			}
 		}
 	}
