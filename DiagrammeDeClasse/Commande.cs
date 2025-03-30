@@ -15,6 +15,7 @@ public class Commande
 	private Vendeur vendeur = null;
 	private Facture facture = new Facture();
 	private Client client = null;
+	private string preference;
 
 	//Constructeur
 	public Commande()
@@ -30,23 +31,14 @@ public class Commande
 	public Facture FactureClient { get { return facture; } }
 	public List<Article> ListeArticles { get { return listeArticles; } }
 
+	public string Preference { get { return preference; } }
 
 	public static List<Commande> getListCommande(){return commandes;}
 
 
-	//Fonction qui permet d<enregister la commande dans un json
-	public void EnregistrerCommande()
-	{
-		string PathFile = "../../Commande/Commandes.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données de la commande {0}", no);
-		string ClientJSON = JsonNet.Serialize(commandes);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
-	}
+	/********************************************--Fonctions--**************************************************/
 
-	//Fonction qui permet au client de sélectionner les articles qu'il veut commander
+	//Fonction qui permet au client de sélectionner les fleurs qu'il désire commander
 	public void SelectionTypesFleurs()
 	{
 		Console.Clear();
@@ -100,7 +92,7 @@ public class Commande
 		}
 	}
 
-	//Fonction qui permet au client de sélectionner les bouquets qu'il veut commander
+	//Fonction qui permet au client de sélectionner les bouquets qu'il désire commander
 	public void SelectionBouquets()
 	{
 		bool ChoixBouquetEnCours = true;
@@ -163,7 +155,7 @@ public class Commande
 		}
 	}
 
-	//Fonction qui permet au client de s/lectionner les articles qu'il veut commander
+	//Fonction qui permet au client de sélectionner les articles qu'il désire commander
 	public void SelectionDesArticles(Client c)
 	{
 		bool commandeEnCours = true;
@@ -187,34 +179,28 @@ public class Commande
 		Console.WriteLine();
 		if(listeArticles.Count() != 0)
 		{
+			IndiquerPreferance();
 			commandes.Add(this);
 			client = c;
 		}
 
 	}
 
+	//Fonction qui permet au client d'indiquer ses préférence pour la commande
 	public void IndiquerPreferance()
 	{
-		throw new NotImplementedException();
+		Console.WriteLine("Veuillez entrer tout commentaire qui vous semble pertinent pour la commande");
+		preference = Console.ReadLine();
 	}
 
-
+	//Fonction qui permet d'annuler une commande et de la retirer des listes de commandes
 	public void Annuler()
 	{
 		commandes.Remove (this);
 		Console.WriteLine("Commande Annulée");
 	}
 
-	public void Valider()
-	{
-		throw new NotImplementedException();
-	}
-
-	public void FaireLeSuivi()
-	{
-		throw new NotImplementedException();
-	}
-
+	//Fonction qui permet d'afficher les détails de la commande
 	public void AfficherDetailsCommandes()
 	{
 		foreach (Article article in listeArticles)
@@ -223,6 +209,7 @@ public class Commande
 		}
 	}
 
+	//Fonction qui vérifie si l'utilisateur veut continuer ou non
 	public bool Continuer(string str)
 	{
 		Console.WriteLine(str);
@@ -238,7 +225,7 @@ public class Commande
 		}
 	}
 
-	//Verifie si c'est bien un nombre
+	//Fonction qui verifie si c'est bien un nombre
 	public bool VerificationNombre(string str)
 	{
 		for (int i = 0; i < str.Length; i++)
@@ -246,6 +233,8 @@ public class Commande
 				return false;
 		return true;
 	}
+
+	//Fonction qui permet d'attribuer un vendeur à une commande
 	public void AttribuerVendeur()
 	{
 		string reponse;
@@ -273,6 +262,8 @@ public class Commande
 			Console.WriteLine("Le numéro entré ne corespond pas à un vendeur");
 		}
 	}
+
+	//Fonction qui permet de générer la facture du client
 	public void GenererFactureClient()
 	{
 		facture = new Facture();

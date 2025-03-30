@@ -18,16 +18,6 @@ public class Fournisseur : Utilisateur, IFournisseur
 	public string NoFournisseur { get { return noFournisseur;} }
 	public static List<Fournisseur> GetFournisseurs() { return fournisseurs ; }
 
-	public override void EnregistrerDonneesUtilisateur(Utilisateur f)
-	{
-		string PathFile = "../../Fournisseur/Fournisseur.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du Fournisseur");
-		string ClientJSON = JsonNet.Serialize(fournisseurs);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
-	}
 	public void EffectuerApprovisionnement(Fleur fleur)
 	{
 		Fleur.ApprovisionnerTout();

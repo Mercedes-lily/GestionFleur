@@ -17,5 +17,6 @@ public abstract class Article
 	public double PrixUnitaire
 	{ get { return prixUnitaire; } }
 
+	/********************************************--Fonctions--**************************************************/
 	public abstract void Afficher();
 }

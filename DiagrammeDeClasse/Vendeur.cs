@@ -36,15 +36,4 @@ public class Vendeur : Utilisateur, IVendeur
 	{
 		throw new NotImplementedException();
 	}
-
-	public override void EnregistrerDonneesUtilisateur(Utilisateur v)
-	{
-		string PathFile = "../../Vendeurs/Vendeurs.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du client");
-		string ClientJSON = JsonNet.Serialize(vendeurs);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
-	}	
 }

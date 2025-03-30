@@ -86,16 +86,6 @@ public class Proprietaire : Utilisateur
 		return null;
 	}
 
-	public override void EnregistrerDonneesUtilisateur(Utilisateur p)
-	{
-		string PathFile = "../../Proprietaire/Proprietaire.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du Fournisseur");
-		string ClientJSON = JsonNet.Serialize(this);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
-	}
 
 	public void GestionCommerce()
 	{
@@ -107,7 +97,7 @@ public class Proprietaire : Utilisateur
 			Console.WriteLine("2. Attribuer les vendeurs au commandes");
 			Console.WriteLine("3. Effectuer l'approvisionnement");
 			Console.WriteLine("4. Effectuer le suivi des commandes");
-			Console.WriteLine("5. Mettre 'a  a jour les enregistrements");
+			Console.WriteLine("5. Mettre à jour les enregistrements");
 			Console.WriteLine("6. Quitter");
 			string reponse = Console.ReadLine();
 			if (reponse.Trim(' ') == "1")
@@ -129,9 +119,11 @@ public class Proprietaire : Utilisateur
 			{
 				Console.Clear();
 				GestionCommande();
+			else if (reponse.Trim(' ') == "5")
+			{
+				EnregistrerDonneesUtilisateurs();
+				EnregistrerDonnees();
 			}
-			//else if (reponse.Trim(' ') == "4")
-			//GestionCommande();
 			else if (reponse.Trim(' ') == "6")
 				return;
 			else
@@ -274,6 +266,81 @@ public class Proprietaire : Utilisateur
 				}
 			}
 			Console.WriteLine("Entree Invalide");
+		}
+	}
+	public void EnregistrerDonneesUtilisateurs()
+	{
+		string PathFile = "../../Proprietaire/Proprietaire.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données du Propriétaire");
+		string ClientJSON = JsonNet.Serialize(this);
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
+		}
+
+		PathFile = "../../Client/Client.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données des Clients");
+		ClientJSON = JsonNet.Serialize(Client.GetClients());
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
+		}
+
+		PathFile = "../../Fournisseur/Fournisseurs.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données des Fournisseurs");
+		ClientJSON = JsonNet.Serialize(Fournisseur.GetFournisseurs());
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
+		}
+
+		PathFile = "../../Vendeur/Vendeurs.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données des Vendeurs");
+		ClientJSON = JsonNet.Serialize(Vendeur.getVendeurs());
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
+		}
+	}
+
+	public void EnregistrerDonnees()
+	{
+		string PathFile = "../../Commande/Commandes.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données des commmandes");
+		string ClientJSON = JsonNet.Serialize(Commande.getListCommande());
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
+		}
+
+		PathFile = "../../Facture/Factures.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données des Factures");
+		ClientJSON = JsonNet.Serialize(Facture.GetFactures());
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
+		}
+
+		PathFile = "../../Bouquet/Bouquets.json";
+		if (!File.Exists(PathFile))
+			File.Create(PathFile);
+		Console.WriteLine("Enregistrement des données des Bouquets");
+		ClientJSON = JsonNet.Serialize(Bouquet.GetBouquetsPredefini());
+		using (StreamWriter writer = new StreamWriter(PathFile))
+		{
+			writer.Write(ClientJSON);
 		}
 	}
 }
