@@ -13,7 +13,7 @@ public class Proprietaire : Utilisateur
 	public bool NouvelUtilisateur(string n, string p, string no)
 	{
 		return true;
-		}
+	}
 
 	//Fonction qui permet de cr�er un utilisateur et de le retourner
 	public Utilisateur AjouterUtilisateur()

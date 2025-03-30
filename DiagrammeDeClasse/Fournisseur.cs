@@ -29,12 +29,6 @@ public class Fournisseur : Utilisateur, IFournisseur
 	}
 	public void EffectuerApprovisionnement(Fleur fleur)
 	{
-		List<Fleur> fleurs = Fleur.Fleurs;
-		foreach (Fleur f in fleurs)
-		{
-			if (f.Quantite < 10)
-				f.Quantite = 10;
-		}
-		Console.WriteLine("Toutes les fleurs ont �t� r�approvisionn�es.");
+		Fleur.ApprovisionnerTout();
 	}
 }

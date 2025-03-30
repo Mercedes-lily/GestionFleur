@@ -53,12 +53,17 @@ public class Commande
 		List<Fleur> fleurs = Fleur.Fleurs;
 		while (ChoixFleurEnCours)
 		{
-			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre commande");
+			bool entreeValide = false;
+			Fleur.AfficherTout();
+			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre commande. Entrez N pour annuler.");
 			string reponse = Console.ReadLine();
+			if (reponse == "n" || reponse == "N")
+				return;
 			foreach (Fleur f in fleurs)
 			{
 				if (reponse.Trim(' ') == f.Nom)
 				{
+					entreeValide = true;
 					int nb = 0;
 					while (nb <= 0)
 					{
@@ -78,7 +83,17 @@ public class Commande
 					break;
 				}
 			}
-			ChoixFleurEnCours = Continuer("Voulez-vous ajouter d'autres fleurs individuelles à votre commande? O/N");
+			if (!entreeValide)
+			{
+				Console.Clear();
+				Console.WriteLine("Veuillez n'entrer que le nom de la fleur et vérifier son orthographe (Entrée pour continuer)");
+				Console.ReadLine();
+			}
+			else
+			{
+				ChoixFleurEnCours = Continuer("Voulez-vous ajouter d'autres fleurs individuelles à votre commande? O/N");
+				Console.Clear();
+			}
 		}
 	}
 
