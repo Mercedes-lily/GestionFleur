@@ -31,9 +31,4 @@ public class Vendeur : Utilisateur, IVendeur
 	{
 		throw new NotImplementedException();
 	}
-
-	public void EffectuerTransaction()
-	{
-		throw new NotImplementedException();
-	}
 }

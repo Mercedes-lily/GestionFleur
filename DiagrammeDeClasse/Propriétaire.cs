@@ -4,7 +4,7 @@ using System.Linq;
 using System.IO;
 
 
-public class Proprietaire : Utilisateur
+public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 {
 	public Proprietaire(string n, string p) : base(n, p)
 	{
@@ -113,7 +113,7 @@ public class Proprietaire : Utilisateur
 			else if (reponse.Trim(' ') == "3")
 			{
 				Console.Clear();
-				Fleur.ApprovisionnerTout();
+				EffectuerApprovisionnement();
 			}
 			else if (reponse.Trim(' ') == "4")
 			{
@@ -343,5 +343,10 @@ public class Proprietaire : Utilisateur
 		{
 			writer.Write(ClientJSON);
 		}
+	}
+
+	public void EffectuerApprovisionnement()
+	{
+		Fleur.ApprovisionnerTout();
 	}
 }

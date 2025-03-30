@@ -1,4 +1,4 @@
 public interface IFournisseur
 {
-	void EffectuerApprovisionnement(Fleur fleur);
+	void EffectuerApprovisionnement();
 }
