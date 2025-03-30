@@ -7,8 +7,12 @@
 			Fleur.ImporterDonnees("..\\..\\fleurs_db.csv");
 			Proprietaire P = new Proprietaire("Boulanger", "Vincent");
 			Client c = new Client("a", "a","C32");
-			c.PasserCommande();
-			P.GestionCommerce();
+			Fournisseur f = new Fournisseur("b", "b", "F32");
+			Vendeur v = new Vendeur("b", "b", "V32");
+			//c.ActionClient();
+			f.ActionFournisseur();
+			//v.GestionCommande();
+
 
 		}
 	}
