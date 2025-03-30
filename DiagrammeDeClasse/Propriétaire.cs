@@ -152,20 +152,20 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		bool attribution = false;
 		while (!attribution)
 		{
-			if (afficherCommandeNonComplete() == 0)
+			if (AfficherCommandeNonComplete() == 0)
 				return;
 			Console.WriteLine("Veuillez entrer le numéro de la commande pour faire l'attribution");
 			Console.WriteLine("Entrez N pour quitter");
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
-			if (!(attribution = rechercheVendeur(reponse)))
+			if (!(attribution = RechercheVendeur(reponse)))
 				Console.WriteLine("Commande introuvable");
 		}
 	}
 
 	//Affiche les commande non attribuer et retourne le nombre de commande non attribuer
-	public int afficherCommandeNonComplete()
+	public int AfficherCommandeNonComplete()
 	{
 		int attributionNonComplete = 0;
 		Console.WriteLine("Voici les commandes qui n'ont pas de vendeur attribué");
@@ -184,7 +184,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 	}
 
 	//Recherche si le vendeur s/lectionne est une entr/e valide vendeur pour une commande
-	public bool rechercheVendeur(string str)
+	public bool RechercheVendeur(string str)
 	{
 		foreach (Commande c in Commande.getListCommande())
 		{

@@ -73,7 +73,7 @@ public class Fleur : Article
 	//Fonction qui permet d'afficher les informations de toutes les fleurs
 	static public void AfficherTout()
 	{
-		Console.WriteLine("Liste des fleurs:");
+		Console.WriteLine("Liste des fleurs disponibles:");
 		foreach (Fleur fleur in fleurs)
 		{
 			fleur.Afficher();
