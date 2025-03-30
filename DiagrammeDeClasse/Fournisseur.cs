@@ -18,7 +18,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 	public string NoFournisseur { get { return noFournisseur;} }
 	public static List<Fournisseur> GetFournisseurs() { return fournisseurs ; }
 
-	public void EffectuerApprovisionnement(Fleur fleur)
+	public void EffectuerApprovisionnement()
 	{
 		Fleur.ApprovisionnerTout();
 	}

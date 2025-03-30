@@ -58,7 +58,7 @@ public class Fleur : Article
 	}
 	static public void AfficherTout()
 	{
-		Console.WriteLine("Liste des fleurs:");
+		Console.WriteLine("Liste des fleurs disponibles:");
 		foreach (Fleur fleur in fleurs)
 		{
 			fleur.Afficher();
@@ -91,6 +91,6 @@ public class Fleur : Article
 
 	public void AfficherNomCout()
 	{
-		Console.WriteLine($"{nom} : {prixUnitaire}0$");
+		Console.WriteLine($"{nom} : {prixUnitaire}$");
 	}
 }

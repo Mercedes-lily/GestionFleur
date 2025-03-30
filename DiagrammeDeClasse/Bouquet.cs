@@ -60,45 +60,54 @@ public class Bouquet : Article
 		{
 			f.AfficherNomCout();
 		}
-		Console.WriteLine("Cout total du bouquet: {0}0$", PrixUnitaire);
+		Console.WriteLine("Cout total du bouquet: {0}$", PrixUnitaire);
 	}
-
-
 
 	public void CreerBouquetPersonnalise()
 	{
-		List<Fleur> fleurs = Fleur.Fleurs;
-		Console.WriteLine("Voici les fleurs disponibles");
-		foreach (Fleur f in fleurs)
-			f.Afficher();
+		Console.Clear();
 		bool ChoixFleurEnCours = true;
 		while (ChoixFleurEnCours)
 		{
-			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre bouquet");
-			string reponse = Console.ReadLine();
-			foreach (Fleur f in fleurs)
+			bool found = false;
+			string reponse;
+			while (!found)
 			{
-				if (reponse.Trim(' ') == f.Nom)
+				Fleur.AfficherTout();
+				Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre bouquet");
+				reponse = Console.ReadLine();
+				foreach (Fleur f in Fleur.Fleurs)
 				{
-					int nb = 0;
-					while (nb <= 0)
+					if (reponse.Trim(' ') == f.Nom)
 					{
-						Console.Write("Veuiller entrer la quantité : ");
-						reponse = Console.ReadLine();
-						for (int i = 0; i < reponse.Length; i++)
-							if (reponse[i] < '0' || reponse[i] > '9')
-								continue;
-						nb = int.Parse(reponse);
+						found = true;
+						int nb = 0;
+						while (nb <= 0)
+						{
+							Console.Write("Veuillez entrer la quantité : ");
+							reponse = Console.ReadLine();
+							for (int i = 0; i < reponse.Length; i++)
+								if (reponse[i] < '0' || reponse[i] > '9')
+									continue;
+							nb = int.Parse(reponse);
+						}
+						while (nb > 0)
+						{
+							AjouterFleurs(f);
+							nb--;
+							f.Quantite--;
+						}
+						break;
 					}
-					while (nb > 0)
-					{
-						AjouterFleurs(f);
-						nb--;
-						f.Quantite--;
-					}
-					break;
+				}
+				if (!found)
+				{
+					Console.Clear();
+					Console.WriteLine("Nom de fleur invalide. Veuillez entrer un nom de la liste (Entrée pour continuer)");
+					Console.ReadLine();
 				}
 			}
+			
 			Console.WriteLine("Voulez-vous ajouter d'autres fleurs à votre bouquet? O/N");
 			reponse = Console.ReadLine();
 			if (reponse == "N" || reponse == "n")
