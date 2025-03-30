@@ -16,6 +16,7 @@ public class Bouquet : Article
 	private List<Fleur> fleurs = new List<Fleur>();
 	static private List<Bouquet> bouquetsPredefini = new List<Bouquet>();
 
+	//Constructeur
 	public Bouquet()
 	{
 		prixUnitaire = labeur + coutCarte;
@@ -23,7 +24,12 @@ public class Bouquet : Article
 		dernierno++;
 	}
 
+	//Acesseur
+	public  Carte CarteBouquet { get { return carte; } }
+	private List<Fleur> Fleurs{ get { return fleurs; } }
 	public string NoBouquet { get { return noBouquet; } }
+
+	public static List<Bouquet> GetBouquetsPredefini() { return bouquetsPredefini; }
 
 	//Parcourir la liste des fleurs et ajouter une copie de la fleur choisie dans le bouquet
 	public void AjouterFleurs(Fleur fleur)
@@ -59,10 +65,7 @@ public class Bouquet : Article
 		Console.WriteLine("Cout total du bouquet: {0}", PrixUnitaire);
 	}
 
-	public static List<Bouquet> GetBouquetsPredefini()
-	{
-		return bouquetsPredefini;
-	}
+
 
 	public void CreerBouquetPersonnalise()
 	{

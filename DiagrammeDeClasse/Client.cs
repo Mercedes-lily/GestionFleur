@@ -7,19 +7,17 @@ using System.IO;
 public class Client : Utilisateur
 {
 	private string noClient;
+	//Contient la liste de tous les clients
 	static List<Client> Clients = new List<Client>();
+
+	//Acesseur NoClient
 	public string NoClient
 	{
-		get
-		{
-			return this.noClient;
-		}
-		set
-		{
-			this.noClient = value;
-		}
+		get{return this.noClient;}
+		set{this.noClient = value;}
 	}
 
+	//Constructeur
 	public Client(string n, string p, string no) : base(n, p)
 	{
 		this.noClient = no;
