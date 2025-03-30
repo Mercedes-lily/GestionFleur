@@ -34,8 +34,9 @@ public class Fournisseur : Utilisateur, IFournisseur
 		List<Fleur> fleurs = Fleur.Fleurs;
 		foreach (Fleur f in fleurs)
 		{
-			while (f.Quantite < 10)
-				f.Quantite++;
+			if (f.Quantite < 10)
+				f.Quantite = 10;
 		}
+		Console.WriteLine("Toutes les fleurs ont été réapprovisionnées.");
 	}
 }

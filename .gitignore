@@ -454,3 +454,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 .vs/GestionFleur/v17/.suo
+/.vs

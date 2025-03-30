@@ -25,15 +25,51 @@ public class Fleur : Article
 		this.couleur = couleur;
 		this.description = description;
 	}
-	public int Quantite { get { return quantite; } set { quantite = value; } }
-	public static List<Fleur> Fleurs { get { return fleurs; } }
-	public string Nom { get { return nom; } }
-	public string Description { get { return description; } }
-	public string Couleur { get { return couleur; } }
+	public int Quantite 
+	{ 
+		get 
+		{ 
+			return quantite; 
+		}
+		set
+		{ 
+			quantite = value;
+		} 
+	}
+	public static List<Fleur> Fleurs 
+	{ 
+		get 
+		{ 
+			return fleurs; 
+		} 
+	}
+	public string Nom 
+	{ 
+		get 
+		{ 
+			return nom;
+		} 
+	}
+	public string Description 
+	{ 
+		get 
+		{ 
+			return description; 
+		} 
+	}
+	public string Couleur 
+	{ 
+		get 
+		{
+			return couleur;
+		} 
+	}
+
 	public override void Afficher()
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");
 	}
+
 	static public void ImporterDonnees(string path)
 	{	
 		using (var reader = new StreamReader(path))
@@ -47,6 +83,7 @@ public class Fleur : Article
 			}
 		}
 	}
+
 	public sealed class FleurMap : ClassMap<Fleur>
 	{
 		public FleurMap()
