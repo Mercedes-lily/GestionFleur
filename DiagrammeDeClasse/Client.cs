@@ -1,12 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Json.Net;
 using System.IO;
-using System.Xml;
+
 
 public class Client : Utilisateur
 {
@@ -24,7 +20,7 @@ public class Client : Utilisateur
 		}
 	}
 
-	public Client(string n, string p, string addr, string tel, string no) : base(n, p, addr, tel)
+	public Client(string n, string p, string no) : base(n, p)
 	{
 		this.noClient = no;
 

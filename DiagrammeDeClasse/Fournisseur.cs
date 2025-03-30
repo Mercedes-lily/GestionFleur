@@ -1,19 +1,14 @@
 using Json.Net;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-
-using System.Net.NetworkInformation;
 
 public class Fournisseur : Utilisateur, IFournisseur
 {
 	private string noFournisseur;
 	private static List<Fournisseur> fournisseurs = new List<Fournisseur>();
 
-	public Fournisseur(string nom, string prenom, string adresse, string telephone, string noFournisseur) : base(nom, prenom, adresse, telephone)
+	public Fournisseur(string nom, string prenom, string noFournisseur) : base(nom, prenom)
 	{
 		this.noFournisseur = noFournisseur;
 		fournisseurs.Add(this);

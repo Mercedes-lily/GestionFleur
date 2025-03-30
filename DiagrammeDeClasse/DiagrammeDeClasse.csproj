@@ -71,7 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boutique.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Vendeur.cs" />
     <Compile Include="Fleur.cs" />

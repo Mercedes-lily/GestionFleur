@@ -6,24 +6,24 @@ using System.IO;
 
 public class Proprietaire : Utilisateur
 {
-	public Proprietaire(string n, string p, string addr, string tel) : base(n, p, addr, tel)
+	public Proprietaire(string n, string p) : base(n, p)
 	{
 		this.nom = n;
 		this.prenom = p;
-		this.adresse = addr;
-		this.telephone = tel;
 	}
+	//Fonction qui regarde si l'utilisateur existe déja.
+	public bool NouvelUtilisateur(string n, string p, string no)
+	{
+		return true;
+		}
 
+	//Fonction qui permet de créer un utilisateur et de le retourner
 	public Utilisateur AjouterUtilisateur()
 	{
 		Console.WriteLine("Veuillez entrer le nom de l'utilisateur");
 		string nom = Console.ReadLine();
 		Console.WriteLine("Veuillez entrer le prenom de l'utilisateur");
 		string prenom = Console.ReadLine();
-		Console.WriteLine("Veuillez entrer l'adresse de l'utilisateur");
-		string adresse = Console.ReadLine();
-		Console.WriteLine("Veuillez entrer le telephone de l'utilisateur");
-		string telephone = Console.ReadLine();
 		Console.WriteLine("Veuillez entrer le numero de l'utilisateur");
 		string numero = Console.ReadLine();
 		while (numero[0] != 'C' && numero[0] != 'F' && numero[0] != 'V')
@@ -33,12 +33,13 @@ public class Proprietaire : Utilisateur
 			numero = Console.ReadLine().Trim(' ');
 			;
 		}
+
 		if (numero[0] == 'C')
-			return(new Client(nom, prenom, adresse, telephone, numero));
+			return(new Client(nom, prenom, numero));
 		else if (numero[0] == 'F')
-			return(new Fournisseur(nom, prenom, adresse, telephone, numero));
+			return(new Fournisseur(nom, prenom, numero));
 		else if (numero[0] == 'V')
-			return(new Vendeur(nom, prenom, adresse, telephone, numero));
+			return(new Vendeur(nom, prenom, numero));
 		return null;
 	}
 
@@ -74,9 +75,11 @@ public class Proprietaire : Utilisateur
 			else if (reponse.Trim(' ') == "4")
 				GestionCommande();
 			//else if (reponse.Trim(' ') == "4")
-				//GestionCommande();
+			//GestionCommande();
 			else if (reponse.Trim(' ') == "6")
 				return;
+			else
+				Console.WriteLine("Mauvaise Entrée");
 		}
 
 	}

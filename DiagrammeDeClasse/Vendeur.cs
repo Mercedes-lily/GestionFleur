@@ -1,9 +1,6 @@
 using Json.Net;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 public class Vendeur : Utilisateur, IVendeur
@@ -28,12 +25,10 @@ public class Vendeur : Utilisateur, IVendeur
 		return vendeurs;
 	}
 
-	public Vendeur(string n, string p, string addr, string tel, string no) : base(n, p, addr, tel)
+	public Vendeur(string n, string p, string no) : base(n, p)
 	{
 		this.nom = n;
 		this.prenom = p;
-		this.adresse = addr;
-		this.telephone = tel;
 		this.noVendeur = no;
 		vendeurs.Add(this);
 		Console.WriteLine("Vendeur créé");
