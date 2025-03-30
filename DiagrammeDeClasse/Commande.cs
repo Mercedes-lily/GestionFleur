@@ -182,23 +182,27 @@ public class Commande
 
 	}
 
+	//Fonction qui permet au client d'indiquer ses préférence pour la commande
 	public void IndiquerPreferance()
 	{
 		Console.WriteLine("Veuillez entrer tout commentaire qui vous semble pertinent pour la commande");
 		preference = Console.ReadLine();
 	}
 
+	//Fonction qui permet d'annuler une commande et de la retirer des listes de commandes
 	public void Annuler()
 	{
 		commandes.Remove (this);
 		Console.WriteLine("Commande Annule");
 	}
 
+	//Fonction qui permet d'afficher les détails de la commande
 	public void AfficherDetailsCommandes()
 	{
 		throw new NotImplementedException();
 	}
 
+	//Fonction qui vérifie si l'utilisateur veut continuer ou non
 	public bool Continuer(string str)
 	{
 		Console.WriteLine(str);
@@ -214,7 +218,7 @@ public class Commande
 		}
 	}
 
-	//Verifie si c'est bien un nombre
+	//Fonction qui verifie si c'est bien un nombre
 	public bool VerificationNombre(string str)
 	{
 		for (int i = 0; i < str.Length; i++)
@@ -222,6 +226,8 @@ public class Commande
 				return false;
 		return true;
 	}
+
+	//Fonction qui permet d'attribuer un vendeur à une commande
 	public void AttribuerVendeur()
 	{
 		string reponse;
@@ -249,6 +255,8 @@ public class Commande
 			Console.WriteLine("Le numero entrer ne corespond pas a un vendeur");
 		}
 	}
+
+	//Fonction qui permet de générer la facture du client
 	public void GenererFactureClient()
 	{
 		facture = new Facture();
