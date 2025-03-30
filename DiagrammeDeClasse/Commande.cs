@@ -184,6 +184,7 @@ public class Commande
 				Console.WriteLine("Choix invalide");
 		}
 		Console.WriteLine("Voici les articles de la commande");
+		AfficherDetailsCommandes();
 		if(listeArticles.Count() != 0)
 		{
 			IndiquerPreferance();
@@ -210,7 +211,10 @@ public class Commande
 	//Fonction qui permet d'afficher les détails de la commande
 	public void AfficherDetailsCommandes()
 	{
-		throw new NotImplementedException();
+		foreach (Article a in listeArticles)
+		{
+			a.Afficher();
+		}
 	}
 
 	//Fonction qui vérifie si l'utilisateur veut continuer ou non

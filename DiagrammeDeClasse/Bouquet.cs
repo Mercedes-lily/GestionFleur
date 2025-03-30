@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 
 
 
@@ -107,9 +108,15 @@ public class Bouquet : Article
 					Console.ReadLine();
 				}
 			}
-			
 			Console.WriteLine("Voulez-vous ajouter d'autres fleurs à votre bouquet? O/N");
-			reponse = Console.ReadLine();
+			reponse = Console.ReadLine(); ;
+			while (reponse != "N" && reponse != "n" && reponse != "O" && reponse != "o")
+			{
+				Console.Clear();
+				Console.WriteLine("Entrée invalide");
+				Console.WriteLine("Voulez-vous ajouter d'autres fleurs à votre bouquet? O/N");
+				reponse = Console.ReadLine();
+			}
 			if (reponse == "N" || reponse == "n")
 			{
 				ChoixFleurEnCours = false;
@@ -127,7 +134,7 @@ public class Bouquet : Article
 		Afficher();
 	}
 
-	public static void ajouterBouquetListe(Bouquet bouquet)
+	public static void AjouterBouquetListe(Bouquet bouquet)
 	{
 		bouquetsPredefini.Add(bouquet);
 	}
