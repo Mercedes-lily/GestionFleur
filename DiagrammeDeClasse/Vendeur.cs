@@ -12,7 +12,7 @@ public class Vendeur : Utilisateur, IVendeur
 		this.prenom = p;
 		this.noVendeur = no;
 		vendeurs.Add(this);
-		Console.WriteLine("Vendeur crée");
+		Console.WriteLine("Vendeur créé");
 	}
 
 	//Accesseur
@@ -42,7 +42,7 @@ public class Vendeur : Utilisateur, IVendeur
 		string PathFile = "../../Vendeurs/Vendeurs.json";
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des donn�es du client");
+		Console.WriteLine("Enregistrement des données du client");
 		string ClientJSON = JsonNet.Serialize(vendeurs);
 		//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);

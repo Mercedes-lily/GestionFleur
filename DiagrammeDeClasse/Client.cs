@@ -25,7 +25,7 @@ public class Client : Utilisateur
 		this.noClient = no;
 
 		//Comparer s<il existe deja
-		Console.WriteLine("Client cr��");
+		Console.WriteLine("Client créé");
 		Clients.Add(this);
 		EnregistrerDonneesUtilisateur(this);
 	}
@@ -42,7 +42,7 @@ public class Client : Utilisateur
 		string PathFile = "../../Client/Client.json";
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des donn�es du client");
+		Console.WriteLine("Enregistrement des données du client");
 		string ClientJSON = JsonNet.Serialize(Clients);
 	//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);
