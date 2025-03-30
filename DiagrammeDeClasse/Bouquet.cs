@@ -53,13 +53,14 @@ public class Bouquet : Article
 	//Afficher le bouquet
 	public override void Afficher()
 	{
+		Console.Clear();
 		Console.WriteLine("Numero du bouquet: {0}", noBouquet);
 		Console.WriteLine("Message de la carte: {0}", carte.Message);
 		foreach (Fleur f in fleurs)
 		{
 			f.AfficherNomCout();
 		}
-		Console.WriteLine("Cout total du bouquet: {0}$", PrixUnitaire);
+		Console.WriteLine("Cout total du bouquet: {0}0$", PrixUnitaire);
 	}
 
 

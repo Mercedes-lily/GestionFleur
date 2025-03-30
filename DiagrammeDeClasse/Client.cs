@@ -18,6 +18,7 @@ public class Client : Utilisateur
 
 	public static List<Client> GetClients() { return Clients; }
 
+	//Constructeur
 	public Client(string n, string p, string no) : base(n, p)
 	{
 		this.noClient = no;
@@ -27,6 +28,9 @@ public class Client : Utilisateur
 		Clients.Add(this);
 	}
 
+	/********************************************--Fonctions--**************************************************/
+
+	//Fonction qui permet au client de passer une commande
 	public void PasserCommande()
 	{
 		Console.Clear();
