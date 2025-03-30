@@ -1,13 +1,8 @@
 using Json.Net;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using CsvHelper.Configuration.Attributes;
-using System.Security.Cryptography.X509Certificates;
+
 
 public class Proprietaire : Utilisateur
 {
@@ -66,8 +61,9 @@ public class Proprietaire : Utilisateur
 			Console.WriteLine("1. Ajouter un utilisateur");
 			Console.WriteLine("2. Attribuer les vendeurs au commandes");
 			Console.WriteLine("3. Effectuer l'approvisionnement");
-			Console.WriteLine("4. Effectuer une transaction");
-			Console.WriteLine("5. Quitter");
+			Console.WriteLine("4. Effectuer le suivi des commandes");
+			Console.WriteLine("5. Mettre 'a  a jour les enregistrements");
+			Console.WriteLine("6. Quitter");
 			string reponse = Console.ReadLine();
 			if (reponse.Trim(' ') == "1")
 				AjouterUtilisateur();
@@ -75,9 +71,11 @@ public class Proprietaire : Utilisateur
 				AttribuerVendeur();
 			//else if (reponse.Trim(' ') == "3")
 			//	Fleur.Approvisionner();
+			else if (reponse.Trim(' ') == "4")
+				GestionCommande();
 			//else if (reponse.Trim(' ') == "4")
-			//	Commande.FacturerClient();
-			else if (reponse.Trim(' ') == "5")
+				//GestionCommande();
+			else if (reponse.Trim(' ') == "6")
 				return;
 		}
 
@@ -133,5 +131,83 @@ public class Proprietaire : Utilisateur
 			}
 		}
 		return false;
+	}
+
+	public void GestionCommande()
+	{
+		if (Commande.getListCommande().Count() == 0)
+		{
+			Console.WriteLine("Il ny a aucune commande active");
+			return;
+		}
+		while(true)
+		{
+			Console.WriteLine("Quelle action voulez-vous effectuer?");
+			Console.WriteLine("1. Annuler une commande");
+			Console.WriteLine("2. Facturer un commande");
+			Console.WriteLine("N pour quitter");
+			string reponse = Console.ReadLine().Trim(' ');
+			if (reponse == "1")
+				Annulation();
+			else if (reponse == "2")
+				Facturer();
+			else if (reponse == "N")
+				return;
+			else
+				Console.WriteLine("Entrée invalide");
+		}
+	}
+
+	public void Annulation()
+	{
+		string reponse;
+		Console.WriteLine("Voici la liste des commandes");
+		foreach (Commande c in Commande.getListCommande())
+			Console.WriteLine(c.No);
+		while (true)
+		{
+			Console.WriteLine("Quel commande voulez-vous annuler");
+			reponse = Console.ReadLine().Trim(' ');
+			foreach (Commande c in Commande.getListCommande())
+			{
+				if (Convert.ToInt32(reponse) == c.No)
+				{
+					c.Annuler();
+					return;
+				}
+			}
+			Console.WriteLine("Entree Invalide");
+		}
+	}
+
+	public void Facturer()
+	{
+		string reponse;
+		int aFacturer = 0;
+		Console.WriteLine("Voici la liste des commandes non Facturé");
+		foreach (Commande c in Commande.getListCommande())
+		{
+			if (c.FactureClient.PaiementEffectue == false)
+			{
+				Console.WriteLine(c.No);
+				aFacturer++;
+			}
+		}
+		if (aFacturer == 0)
+			return;
+		while (true)
+		{
+			Console.WriteLine("Quel commande voulez-vous facturée ?");
+			reponse = Console.ReadLine().Trim(' ');
+			foreach (Commande c in Commande.getListCommande())
+			{
+				if (Convert.ToInt32(reponse) == c.No && c.FactureClient.PaiementEffectue == false)
+				{
+					c.GenererFactureClient();
+					return;
+				}
+			}
+			Console.WriteLine("Entree Invalide");
+		}
 	}
 }

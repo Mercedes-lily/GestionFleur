@@ -12,7 +12,7 @@ public class Commande
 	private List<Article> ListeArticles = new List<Article>();
 	private static List<Commande> commandes = new List<Commande>();
 	private Vendeur vendeur = null;
-	private Facture facture = null;
+	private Facture facture = new Facture();
 	private Client client = null;
 
 
@@ -31,6 +31,8 @@ public class Commande
 
 	public Vendeur Vendeur { get { return vendeur; } set { vendeur = value; } }
 	public int No { get { return no; }}
+
+	public Facture FactureClient { get { return facture; } }
 
 
 	//Fonction qui permet d<enregister la commande dans un json
@@ -180,7 +182,8 @@ public class Commande
 
 	public void Annuler()
 	{
-		throw new NotImplementedException();
+		commandes.Remove (this);
+		Console.WriteLine("Commande Annule");
 	}
 
 	public void Valider()
@@ -251,6 +254,9 @@ public class Commande
 	public void GenererFactureClient()
 	{
 		facture = new Facture();
-		facture.SuiviFacture(client.NoClient, vendeur.NoVendeur, no, ListeArticles);
+		if(Vendeur == null)
+			facture.SuiviFacture(client.NoClient, "Propriétaire", no, ListeArticles);
+		else
+			facture.SuiviFacture(client.NoClient, vendeur.NoVendeur, no, ListeArticles);
 	}
 }

@@ -25,6 +25,8 @@ public class Facture
 		dernierNumeroFacture++;
 	}
 
+	public bool PaiementEffectue { get; }
+
 	public void EnregistrerFacture()
 	{
 		string PathFile = "../../Facture/Factures.json";
@@ -38,19 +40,13 @@ public class Facture
 
 	public void FacturerClient()
 	{
-		ChoisirModePaiement();
-		if (paiementEffectue)
-		{
-			Console.WriteLine("La facture a déjà été payée");
-			return;
-		}
 			paiementEffectue = true;
 			Console.WriteLine("Fermeture de la facture");
 	}
 
 	public void ChoisirModePaiement()
 	{
-		Console.WriteLine("Veuillez choisir le mode de paiement");
+		Console.WriteLine("Veuillez choisir le mode de paiement qui sera utilisé");
 		Console.WriteLine("1. Carte de crédit");
 		Console.WriteLine("2. Carte de débit");
 		Console.WriteLine("3. Argent Comptant");
