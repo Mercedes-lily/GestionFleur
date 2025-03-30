@@ -46,8 +46,6 @@ public class Commande
 		List<Fleur> fleurs = Fleur.Fleurs;
 		while (ChoixFleurEnCours)
 		{
-			Console.Clear();
-			Console.WriteLine();
 			bool entreeValide = false;
 			Fleur.AfficherTout();
 			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre commande. Entrez N pour annuler.");
@@ -101,58 +99,69 @@ public class Commande
 		{
 			List<Bouquet> bouquets = Bouquet.GetBouquetsPredefini();
 
-			if(bouquets.Count() == 0)
-			{
-				Console.WriteLine("Aucun bouquet prédéfinis n'est disponible pour le moment");
-				Console.WriteLine("Voulez-vous créer un bouquet personnalisé? O/N");
-				reponse  = Console.ReadLine();
-				if (reponse == "O" || reponse == "o")
-				{
-					Bouquet bouquet = new Bouquet();
-					bouquet.CreerBouquetPersonnalise();
-					listeArticles.Add(bouquet);
-				}
-				else if (reponse == "N" || reponse == "n")
-					ChoixBouquetEnCours = false;
-				else
-					Console.WriteLine("Entrée invalide");
-			}
+			if (bouquets.Count() == 0)
+				ChoixBouquetEnCours = SansBouquetPredefini();
 			else
-			{
-				Console.WriteLine("Voici les bouquet disponibles pour la sélection");
-				foreach (Bouquet b in bouquets)
-					b.Afficher();
-				Console.WriteLine("Veuillez entrer le numéro du bouquet que nous désirer ajouter ou P pour créer un bouquet personnalisé");
-				Console.WriteLine("Entrée N pour quitter");
-				reponse = Console.ReadLine();
-				if (reponse == "P" || reponse == "p")
-				{
-					Bouquet bouquet = new Bouquet();
-					bouquet.CreerBouquetPersonnalise();
-					listeArticles.Add(bouquet);
-				}
-				else if (reponse == "N" || reponse == "n")
-					ChoixBouquetEnCours = false;
-				else
-				{
-					bool trouver = false;
-					foreach (Bouquet b in bouquets)
-					{
-						if (reponse.Trim(' ') == b.NoBouquet)
-						{
-							b.AjouterMessageCarte();
-							listeArticles.Add(b);
-							trouver = true;
-							b.Afficher();
-							break;
-						}
-					}
-					if (!trouver)
-						Console.WriteLine("Entrée invalide");
-				}
-			}
+				ChoixBouquetEnCours = AvecBouquetPredefini();
 			ChoixBouquetEnCours = Continuer("Voulez-vous ajouter d'autres bouquets à votre commande? O/N");
 		}
+	}
+
+	//Fonction qui permet de choisir les bouquet  lorsqu'il y a des bouquets prédéfinis
+	public bool AvecBouquetPredefini()
+	{
+		List<Bouquet> bouquets = Bouquet.GetBouquetsPredefini();
+		Console.WriteLine("Voici les bouquet disponibles pour la sélection");
+		foreach (Bouquet b in bouquets)
+			b.Afficher();
+		Console.WriteLine("Veuillez entrer le numéro du bouquet que nous désirer ajouter ou P pour créer un bouquet personnalisé");
+		Console.WriteLine("Entrée N pour quitter");
+		string reponse = Console.ReadLine();
+		if (reponse == "P" || reponse == "p")
+		{
+			Bouquet bouquet = new Bouquet();
+			bouquet.CreerBouquetPersonnalise();
+			listeArticles.Add(bouquet);
+		}
+		else if (reponse == "N" || reponse == "n")
+			return false;
+		else
+		{
+			bool trouver = false;
+			foreach (Bouquet b in bouquets)
+			{
+				if (reponse.Trim(' ') == b.NoBouquet)
+				{
+					b.AjouterMessageCarte();
+					listeArticles.Add(b);
+					trouver = true;
+					b.Afficher();
+					break;
+				}
+			}
+			if (!trouver)
+				Console.WriteLine("Entrée invalide");
+		}
+		return true;
+	}
+
+	//Fonction qui permet de choisir les bouquet  lorsqu'il n'y a pas de bouquet prédéfini
+	public bool SansBouquetPredefini()
+	{
+		Console.WriteLine("Aucun bouquet prédéfinis n'est disponible pour le moment");
+		Console.WriteLine("Voulez-vous créer un bouquet personnalisé? O/N");
+		string reponse = Console.ReadLine();
+		if (reponse == "O" || reponse == "o")
+		{
+			Bouquet bouquet = new Bouquet();
+			bouquet.CreerBouquetPersonnalise();
+			listeArticles.Add(bouquet);
+		}
+		else if (reponse == "N" || reponse == "n")
+			return false;
+		else
+			Console.WriteLine("Entrée invalide");
+		return true;
 	}
 
 	//Fonction qui permet au client de sélectionner les articles qu'il désire commander
@@ -161,9 +170,9 @@ public class Commande
 		bool commandeEnCours = true;
 		while (commandeEnCours)
 		{
-			Console.WriteLine("Sélection des articles");
-			Console.WriteLine("Voulez-vous ajouter des fleurs individuelles ou des bouquets (F/B)");
-			Console.WriteLine("Pour terminer l'ajout d'article, veuillez appuyer sur N");
+			Console.WriteLine("Selection des articles");
+			Console.WriteLine("Voulez-vous ajouter des fleurs individuels ou des bouquets F/B");
+			Console.WriteLine("Pour terminer l'ajout d'article, veuillez entrer N");
 			string reponse = Console.ReadLine();
 			if (reponse == "F" || reponse == "f")
 				SelectionTypesFleurs();
@@ -175,8 +184,6 @@ public class Commande
 				Console.WriteLine("Choix invalide");
 		}
 		Console.WriteLine("Voici les articles de la commande");
-		AfficherDetailsCommandes();
-		Console.WriteLine();
 		if(listeArticles.Count() != 0)
 		{
 			IndiquerPreferance();
@@ -197,16 +204,13 @@ public class Commande
 	public void Annuler()
 	{
 		commandes.Remove (this);
-		Console.WriteLine("Commande Annulée");
+		Console.WriteLine("Commande Annule");
 	}
 
 	//Fonction qui permet d'afficher les détails de la commande
 	public void AfficherDetailsCommandes()
 	{
-		foreach (Article article in listeArticles)
-		{
-			article.Afficher();
-		}
+		throw new NotImplementedException();
 	}
 
 	//Fonction qui vérifie si l'utilisateur veut continuer ou non
@@ -248,7 +252,7 @@ public class Commande
 			Console.WriteLine(v.NoVendeur);
 		while(true)
 		{
-			Console.WriteLine("Veuillez entrer le numéro du vendeur pour faire l'attribution");
+			Console.WriteLine("Veuillez entrer le numero du vendeur pour faire l'attribution");
 			reponse = Console.ReadLine().Trim(' ');
 			foreach (Vendeur v in Vendeur.getVendeurs())
 			{
@@ -259,7 +263,7 @@ public class Commande
 					return;
 				}
 			}
-			Console.WriteLine("Le numéro entré ne corespond pas à un vendeur");
+			Console.WriteLine("Le numero entrer ne corespond pas a un vendeur");
 		}
 	}
 
