@@ -9,13 +9,13 @@ public class Proprietaire : Utilisateur
 	public Proprietaire(string n, string p) : base(n, p)
 	{
 	}
-	//Fonction qui regarde si l'utilisateur existe d�ja.
+	//Fonction qui regarde si l'utilisateur existe déja.
 	public bool NouvelUtilisateur(string n, string p, string no)
 	{
 		return true;
 	}
 
-	//Fonction qui permet de cr�er un utilisateur et de le retourner
+	//Fonction qui permet de créer un utilisateur et de le retourner
 	public Utilisateur AjouterUtilisateur()
 	{
 		Console.WriteLine("Veuillez entrer le nom de l'utilisateur");
@@ -46,7 +46,7 @@ public class Proprietaire : Utilisateur
 		string PathFile = "../../Proprietaire/Proprietaire.json";
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des donn�es du Fournisseur");
+		Console.WriteLine("Enregistrement des données du Fournisseur");
 		string ClientJSON = JsonNet.Serialize(this);
 		//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);
@@ -77,7 +77,7 @@ public class Proprietaire : Utilisateur
 			else if (reponse.Trim(' ') == "6")
 				return;
 			else
-				Console.WriteLine("Mauvaise Entr�e");
+				Console.WriteLine("Mauvaise Entrée");
 		}
 
 	}
@@ -92,7 +92,7 @@ public class Proprietaire : Utilisateur
 			if (afficherCommandeNonComplete() == 0)
 				return;
 			Console.WriteLine("Veuillez entrer le numero de la commande pour faire l'attribution");
-			Console.WriteLine("Entr�e N pour quitter");
+			Console.WriteLine("Entrée N pour quitter");
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
@@ -105,7 +105,7 @@ public class Proprietaire : Utilisateur
 	public int afficherCommandeNonComplete()
 	{
 		int attributionNonComplete = 0;
-		Console.WriteLine("Voici les commandes qui n'ont pas de vendeur attribu�");
+		Console.WriteLine("Voici les commandes qui n'ont pas de vendeur attribué");
 		
 		foreach (Commande c in Commande.getListCommande())
 		{
@@ -116,7 +116,7 @@ public class Proprietaire : Utilisateur
 			}
 		}
 		if (attributionNonComplete == 0)
-			Console.WriteLine("Toutes les commandes ont un vendeur attribu�");
+			Console.WriteLine("Toutes les commandes ont un vendeur attribué");
 		return attributionNonComplete;
 	}
 
@@ -155,7 +155,7 @@ public class Proprietaire : Utilisateur
 			else if (reponse == "N")
 				return;
 			else
-				Console.WriteLine("Entr�e invalide");
+				Console.WriteLine("Entrée invalide");
 		}
 	}
 
@@ -185,7 +185,7 @@ public class Proprietaire : Utilisateur
 	{
 		string reponse;
 		int aFacturer = 0;
-		Console.WriteLine("Voici la liste des commandes non Factur�");
+		Console.WriteLine("Voici la liste des commandes non Facturé");
 		foreach (Commande c in Commande.getListCommande())
 		{
 			if (c.FactureClient.PaiementEffectue == false)
@@ -198,7 +198,7 @@ public class Proprietaire : Utilisateur
 			return;
 		while (true)
 		{
-			Console.WriteLine("Quel commande voulez-vous factur�e ?");
+			Console.WriteLine("Quel commande voulez-vous facturée ?");
 			reponse = Console.ReadLine().Trim(' ');
 			foreach (Commande c in Commande.getListCommande())
 			{

@@ -22,7 +22,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 		string PathFile = "../../Fournisseur/Fournisseur.json";
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des donn�es du Fournisseur");
+		Console.WriteLine("Enregistrement des données du Fournisseur");
 		string ClientJSON = JsonNet.Serialize(fournisseurs);
 		//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);
