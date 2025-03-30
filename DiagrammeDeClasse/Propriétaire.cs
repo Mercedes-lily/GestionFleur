@@ -113,8 +113,8 @@ public class Proprietaire : Utilisateur
 				AjouterUtilisateur();
 			else if (reponse.Trim(' ') == "2")
 				AttribuerVendeur();
-			//else if (reponse.Trim(' ') == "3")
-			//	Fleur.Approvisionner();
+			else if (reponse.Trim(' ') == "3")
+				Fleur.ApprovisionnerTout();
 			else if (reponse.Trim(' ') == "4")
 				GestionCommande();
 			//else if (reponse.Trim(' ') == "4")
