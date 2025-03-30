@@ -15,6 +15,7 @@ public class Commande
 	private Vendeur vendeur = null;
 	private Facture facture = new Facture();
 	private Client client = null;
+	private string preference;
 
 	//Constructeur
 	public Commande()
@@ -30,23 +31,14 @@ public class Commande
 	public Facture FactureClient { get { return facture; } }
 	public List<Article> ListeArticles { get { return listeArticles; } }
 
+	public string Preference { get { return preference; } }
 
 	public static List<Commande> getListCommande(){return commandes;}
 
 
-	//Fonction qui permet d<enregister la commande dans un json
-	public void EnregistrerCommande()
-	{
-		string PathFile = "../../Commande/Commandes.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données de la commande {0}", no);
-		string ClientJSON = JsonNet.Serialize(commandes);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
-	}
+	/********************************************--Fonctions--**************************************************/
 
-	//Fonction qui permet au client de sélectionner les articles qu'il veut commander
+	//Fonction qui permet au client de sélectionner les fleurs qu'il désire commander
 	public void SelectionTypesFleurs()
 	{
 		Console.Clear();
@@ -98,7 +90,7 @@ public class Commande
 		}
 	}
 
-	//Fonction qui permet au client de sélectionner les bouquets qu'il veut commander
+	//Fonction qui permet au client de sélectionner les bouquets qu'il désire commander
 	public void SelectionBouquets()
 	{
 		bool ChoixBouquetEnCours = true;
@@ -161,7 +153,7 @@ public class Commande
 		}
 	}
 
-	//Fonction qui permet au client de s/lectionner les articles qu'il veut commander
+	//Fonction qui permet au client de sélectionner les articles qu'il désire commander
 	public void SelectionDesArticles(Client c)
 	{
 		bool commandeEnCours = true;
@@ -183,6 +175,7 @@ public class Commande
 		Console.WriteLine("Voici les articles de la commande");
 		if(listeArticles.Count() != 0)
 		{
+			IndiquerPreferance();
 			commandes.Add(this);
 			client = c;
 		}
@@ -191,24 +184,14 @@ public class Commande
 
 	public void IndiquerPreferance()
 	{
-		throw new NotImplementedException();
+		Console.WriteLine("Veuillez entrer tout commentaire qui vous semble pertinent pour la commande");
+		preference = Console.ReadLine();
 	}
-
 
 	public void Annuler()
 	{
 		commandes.Remove (this);
 		Console.WriteLine("Commande Annule");
-	}
-
-	public void Valider()
-	{
-		throw new NotImplementedException();
-	}
-
-	public void FaireLeSuivi()
-	{
-		throw new NotImplementedException();
 	}
 
 	public void AfficherDetailsCommandes()
