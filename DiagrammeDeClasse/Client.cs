@@ -4,6 +4,7 @@ using Json.Net;
 using System.IO;
 
 
+
 public class Client : Utilisateur
 {
 	private string noClient;
@@ -17,7 +18,6 @@ public class Client : Utilisateur
 		set{this.noClient = value;}
 	}
 
-	//Constructeur
 	public Client(string n, string p, string no) : base(n, p)
 	{
 		this.noClient = no;
