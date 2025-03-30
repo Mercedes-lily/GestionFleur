@@ -2,6 +2,13 @@ public class Carte
 {
 	private string message = "";
 
+	//Constructeur
+	public Carte()
+	{
+
+	}
+
+	//Acesseur
 	public string Message
 	{
 		get 
@@ -13,9 +20,5 @@ public class Carte
 			if (!string.IsNullOrEmpty(value))
 				message = value; 
 		}
-	}
-	public Carte()
-	{
-
 	}
 }

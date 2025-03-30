@@ -13,7 +13,9 @@ public class Bouquet : Article
 	static int dernierno = 0;
 	private string noBouquet;
 	private Carte carte = new Carte();
+	//Contient la liste de toutes les fleurs dans le bouquet actuel
 	private List<Fleur> fleurs = new List<Fleur>();
+	//Contient la liste de tous les bouquets prédéfinis
 	static private List<Bouquet> bouquetsPredefini = new List<Bouquet>();
 
 	//Constructeur

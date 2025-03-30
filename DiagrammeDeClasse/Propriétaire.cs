@@ -6,11 +6,12 @@ using System.IO;
 
 public class Proprietaire : Utilisateur
 {
+	//Constructeur
 	public Proprietaire(string n, string p) : base(n, p)
 	{
-		this.nom = n;
-		this.prenom = p;
 	}
+
+
 	//Fonction qui regarde si l'utilisateur existe déja.
 	public bool NouvelUtilisateur(string n, string p, string no)
 	{

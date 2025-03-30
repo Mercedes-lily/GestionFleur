@@ -8,11 +8,15 @@ public class Fournisseur : Utilisateur, IFournisseur
 	private string noFournisseur;
 	private static List<Fournisseur> fournisseurs = new List<Fournisseur>();
 
+	//Constructeur
 	public Fournisseur(string nom, string prenom, string noFournisseur) : base(nom, prenom)
 	{
 		this.noFournisseur = noFournisseur;
 		fournisseurs.Add(this);
 	}
+
+	//Acesseur 
+	public string NoFournisseur { get { return noFournisseur;} }
 
 	public override void EnregistrerDonneesUtilisateur(Utilisateur f)
 	{
