@@ -9,7 +9,7 @@ public class Facture
 	private int no;
 	private static int dernierNumeroFacture = 0;
 	private double totalTransaction = 0;
-	List<Facture> factures = new List<Facture>();
+	static List<Facture> factures = new List<Facture>();
 	private string vendeur;
 	private string client;
 	private TypeDePaiement type;
@@ -31,7 +31,7 @@ public class Facture
 	public string Client{ get { return client; } }
 	public int NoCommande { get { return noCommande; } }
 	public TypeDePaiement Type { get { return type; } }
-	public List<Facture> Factures { get { return factures; } }
+	public static List<Facture> GetFactures(){ return factures; }
 
 	public void EnregistrerFacture()
 	{

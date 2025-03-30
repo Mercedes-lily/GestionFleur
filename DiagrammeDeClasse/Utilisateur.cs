@@ -22,6 +22,4 @@ public abstract class Utilisateur
 		get{return this.prenom;}
 		set{this.prenom = value;}
 	}
-
-	public abstract void EnregistrerDonneesUtilisateur(Utilisateur u);
 }

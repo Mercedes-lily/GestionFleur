@@ -27,7 +27,6 @@ public class Client : Utilisateur
 		//Comparer s'il existe deja
 		Console.WriteLine("Client créé");
 		Clients.Add(this);
-		EnregistrerDonneesUtilisateur(this);
 	}
 	public void PasserCommande()
 	{
@@ -36,16 +35,5 @@ public class Client : Utilisateur
 		commande.SelectionDesArticles(this);
 		if (commande.ListeArticles.Count > 0)
 			commande.FactureClient.ChoisirModePaiement();
-	}
-
-	public override void EnregistrerDonneesUtilisateur(Utilisateur c)
-	{
-		string PathFile = "../../Client/Client.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du client");
-		string ClientJSON = JsonNet.Serialize(Clients);
-	//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
 	}
 }
