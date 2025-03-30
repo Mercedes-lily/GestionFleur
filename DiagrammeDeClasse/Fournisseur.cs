@@ -16,6 +16,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 
 	//Acesseur 
 	public string NoFournisseur { get { return noFournisseur;} }
+	public static List<Fournisseur> GetFournisseurs() { return fournisseurs ; }
 
 	public override void EnregistrerDonneesUtilisateur(Utilisateur f)
 	{

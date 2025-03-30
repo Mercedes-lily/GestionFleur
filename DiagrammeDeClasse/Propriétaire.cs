@@ -9,9 +9,34 @@ public class Proprietaire : Utilisateur
 	public Proprietaire(string n, string p) : base(n, p)
 	{
 	}
+
 	//Fonction qui regarde si l'utilisateur existe déja.
-	public bool NouvelUtilisateur(string n, string p, string no)
+	public bool NouvelUtilisateur(string no)
 	{
+		if (no[0] == 'C')
+		{
+			foreach(Client c in Client.GetClients())
+			{
+				if (c.NoClient == no)
+					return false;
+			}
+		}
+		if (no[0] == 'V')
+		{
+			foreach (Vendeur c in Vendeur.getVendeurs())
+			{
+				if (c.NoVendeur == no)
+					return false;
+			}
+		if (no[0] == 'F')
+			{
+				foreach (Fournisseur c in Fournisseur.GetFournisseurs())
+				{
+					if (c.NoFournisseur == no)
+						return false;
+				}
+			}
+		}
 		return true;
 	}
 
@@ -20,10 +45,26 @@ public class Proprietaire : Utilisateur
 	{
 		Console.WriteLine("Veuillez entrer le nom de l'utilisateur");
 		string nom = Console.ReadLine();
+		while (String.IsNullOrEmpty(nom))
+		{
+			Console.WriteLine("Entrée invalide. Veuillez entrer le nom de l'utilisateur");
+			nom = Console.ReadLine();
+		}
 		Console.WriteLine("Veuillez entrer le prenom de l'utilisateur");
 		string prenom = Console.ReadLine();
+		while (String.IsNullOrEmpty(prenom))
+		{
+			Console.WriteLine("Entrée invalide. Veuillez entrer le prenom de l'utilisateur");
+			prenom = Console.ReadLine();
+		}
+
 		Console.WriteLine("Veuillez entrer le numero de l'utilisateur");
 		string numero = Console.ReadLine();
+		while (String.IsNullOrEmpty(numero))
+		{
+			Console.WriteLine("Entrée invalide. Veuillez entrer le numero de l'utilisateur");
+			numero = Console.ReadLine();
+		}
 		while (numero[0] != 'C' && numero[0] != 'F' && numero[0] != 'V')
 		{
 			Console.WriteLine("Le numero de l'utilisateur doit commencer par C pour un Client, F pour un Fournisseur ou V pour un Veudeur");
@@ -31,7 +72,11 @@ public class Proprietaire : Utilisateur
 			numero = Console.ReadLine().Trim(' ');
 			;
 		}
-
+		if(!NouvelUtilisateur(numero))
+		{
+			Console.WriteLine("Numéro d'utilisateur déjà attribué. Utilisateur non créé");
+			return null;
+		}
 		if (numero[0] == 'C')
 			return(new Client(nom, prenom, numero));
 		else if (numero[0] == 'F')

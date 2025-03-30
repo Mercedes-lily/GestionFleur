@@ -18,6 +18,8 @@ public class Client : Utilisateur
 		set{this.noClient = value;}
 	}
 
+	public static List<Client> GetClients() { return Clients; }
+
 	public Client(string n, string p, string no) : base(n, p)
 	{
 		this.noClient = no;
