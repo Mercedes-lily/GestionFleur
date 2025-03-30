@@ -50,25 +50,25 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			Console.WriteLine("Entrée invalide. Veuillez entrer le nom de l'utilisateur");
 			nom = Console.ReadLine();
 		}
-		Console.WriteLine("Veuillez entrer le prenom de l'utilisateur");
+		Console.WriteLine("Veuillez entrer le prénom de l'utilisateur");
 		string prenom = Console.ReadLine();
 		while (String.IsNullOrEmpty(prenom))
 		{
-			Console.WriteLine("Entrée invalide. Veuillez entrer le prenom de l'utilisateur");
+			Console.WriteLine("Entrée invalide. Veuillez entrer le prénom de l'utilisateur");
 			prenom = Console.ReadLine();
 		}
 
-		Console.WriteLine("Veuillez entrer le numero de l'utilisateur");
+		Console.WriteLine("Veuillez entrer le numéro de l'utilisateur");
 		string numero = Console.ReadLine();
 		while (String.IsNullOrEmpty(numero))
 		{
-			Console.WriteLine("Entrée invalide. Veuillez entrer le numero de l'utilisateur");
+			Console.WriteLine("Entrée invalide. Veuillez entrer le numéro de l'utilisateur");
 			numero = Console.ReadLine();
 		}
 		while (numero[0] != 'C' && numero[0] != 'F' && numero[0] != 'V')
 		{
-			Console.WriteLine("Le numero de l'utilisateur doit commencer par C pour un Client, F pour un Fournisseur ou V pour un Veudeur");
-			Console.WriteLine("Veuillez entrer le numero de l'utilisateur");
+			Console.WriteLine("Le numéro de l'utilisateur doit commencer par C pour un Client, F pour un Fournisseur ou V pour un Vendeur");
+			Console.WriteLine("Veuillez entrer le numéro de l'utilisateur");
 			numero = Console.ReadLine().Trim(' ');
 			;
 		}
@@ -94,7 +94,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		{
 			Console.WriteLine("Bonjour {0} {1}, que voulez-vous faire?", prenom, nom);
 			Console.WriteLine("1. Ajouter un utilisateur");
-			Console.WriteLine("2. Attribuer les vendeurs au commandes");
+			Console.WriteLine("2. Attribuer les vendeurs aux commandes");
 			Console.WriteLine("3. Effectuer l'approvisionnement");
 			Console.WriteLine("4. Effectuer le suivi des commandes");
 			Console.WriteLine("5. Mettre à jour les enregistrements");
@@ -104,11 +104,17 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			{
 				Console.Clear();
 				AjouterUtilisateur();
+				Console.WriteLine("Appuyez sur Entrée pour retourner au menu");
+				Console.ReadLine();
+				Console.Clear();
 			}
 			else if (reponse.Trim(' ') == "2")
 			{
 				Console.Clear();
 				AttribuerVendeur();
+				Console.WriteLine("Appuyez sur Entrée pour retourner au menu");
+				Console.ReadLine();
+				Console.Clear();
 			}
 			else if (reponse.Trim(' ') == "3")
 			{
@@ -122,8 +128,12 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			}
 			else if (reponse.Trim(' ') == "5")
 			{
+				Console.Clear();
 				EnregistrerDonneesUtilisateurs();
 				EnregistrerDonnees();
+				Console.WriteLine("Appuyez sur Entrée pour retourner au menu");
+				Console.ReadLine();
+				Console.Clear() ;
 			}
 			else if (reponse.Trim(' ') == "6")
 				return;
@@ -145,8 +155,8 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		{
 			if (afficherCommandeNonComplete() == 0)
 				return;
-			Console.WriteLine("Veuillez entrer le numero de la commande pour faire l'attribution");
-			Console.WriteLine("Entrée N pour quitter");
+			Console.WriteLine("Veuillez entrer le numéro de la commande pour faire l'attribution");
+			Console.WriteLine("Entrez N pour quitter");
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
@@ -192,15 +202,15 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 	{
 		if (Commande.getListCommande().Count() == 0)
 		{
-			Console.WriteLine("Il ny a aucune commande active");
+			Console.WriteLine("Il n'y a aucune commande active");
 			return;
 		}
 		while(true)
 		{
 			Console.WriteLine("Quelle action voulez-vous effectuer?");
 			Console.WriteLine("1. Annuler une commande");
-			Console.WriteLine("2. Facturer un commande");
-			Console.WriteLine("N pour quitter");
+			Console.WriteLine("2. Facturer une commande");
+			Console.WriteLine("Entrez N pour quitter");
 			string reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "1")
 				Annulation();
@@ -221,7 +231,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			Console.WriteLine(c.No);
 		while (true)
 		{
-			Console.WriteLine("Quel commande voulez-vous annuler");
+			Console.WriteLine("Quelle commande voulez-vous annuler");
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
@@ -233,7 +243,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 					return;
 				}
 			}
-			Console.WriteLine("Entree Invalide");
+			Console.WriteLine("Entrée Invalide");
 		}
 	}
 
@@ -266,7 +276,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 					return;
 				}
 			}
-			Console.WriteLine("Entree Invalide");
+			Console.WriteLine("Entrée Invalide");
 		}
 	}
 	public void EnregistrerDonneesUtilisateurs()
