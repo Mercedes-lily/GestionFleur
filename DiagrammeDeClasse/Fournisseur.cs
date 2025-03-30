@@ -8,7 +8,6 @@ public class Fournisseur : Utilisateur, IFournisseur
 	private string noFournisseur;
 	private static List<Fournisseur> fournisseurs = new List<Fournisseur>();
 
-	//Constructeur
 	public Fournisseur(string nom, string prenom, string noFournisseur) : base(nom, prenom)
 	{
 		this.noFournisseur = noFournisseur;
@@ -23,7 +22,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 		string PathFile = "../../Fournisseur/Fournisseur.json";
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du Fournisseur");
+		Console.WriteLine("Enregistrement des donnï¿½es du Fournisseur");
 		string ClientJSON = JsonNet.Serialize(fournisseurs);
 		//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);
@@ -36,6 +35,6 @@ public class Fournisseur : Utilisateur, IFournisseur
 			if (f.Quantite < 10)
 				f.Quantite = 10;
 		}
-		Console.WriteLine("Toutes les fleurs ont été réapprovisionnées.");
+		Console.WriteLine("Toutes les fleurs ont ï¿½tï¿½ rï¿½approvisionnï¿½es.");
 	}
 }
