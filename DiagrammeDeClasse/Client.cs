@@ -24,7 +24,7 @@ public class Client : Utilisateur
 	{
 		this.noClient = no;
 
-		//Comparer s<il existe deja
+		//Comparer s'il existe deja
 		Console.WriteLine("Client créé");
 		Clients.Add(this);
 		EnregistrerDonneesUtilisateur(this);
@@ -34,7 +34,8 @@ public class Client : Utilisateur
 		Console.WriteLine("Bonjour {0} {1}, choissions ensembles les fleurs de votre commande.", prenom, nom);
 		Commande commande = new Commande();
 		commande.SelectionDesArticles(this);
-		commande.FactureClient.ChoisirModePaiement();
+		if (commande.ListeArticles.Count > 0)
+			commande.FactureClient.ChoisirModePaiement();
 	}
 
 	public override void EnregistrerDonneesUtilisateur(Utilisateur c)
