@@ -12,7 +12,7 @@ public class Vendeur : Utilisateur, IVendeur
 		this.prenom = p;
 		this.noVendeur = no;
 		vendeurs.Add(this);
-		Console.WriteLine("Vendeur cr��");
+		Console.WriteLine("Vendeur crée");
 	}
 
 	//Accesseur
@@ -27,15 +27,6 @@ public class Vendeur : Utilisateur, IVendeur
 
 	public static List<Vendeur> getVendeurs(){return vendeurs;}
 
-
-	public Vendeur(string n, string p, string no) : base(n, p)
-	{
-		this.nom = n;
-		this.prenom = p;
-		this.noVendeur = no;
-		vendeurs.Add(this);
-		Console.WriteLine("Vendeur cr��");
-	}
 	public void GestionCommande()
 	{
 		throw new NotImplementedException();
