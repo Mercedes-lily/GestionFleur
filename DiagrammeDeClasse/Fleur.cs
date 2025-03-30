@@ -37,15 +37,28 @@ public class Fleur : Article
 	public string Description { get { return description; } }
 	public string Couleur { get {return couleur;} }
 
+	/********************************************--Fonctions--**************************************************/
+	
+	//Fonction qui permet d'afficher les informations de la fleur en entier
 	public override void Afficher()
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");
 	}
+
+	//Fonction qui permet d'afficher le nom et le prix unitaire de la fleur
+	public void AfficherNomCout()
+	{
+		Console.WriteLine($"{nom} : {prixUnitaire}0$");
+	}
+
+	//Fonction qui permet de réapprovisionner la fleur pour en avoir 10 dans l'inventaire une fois l'approvisionnement terminé
 	public void Approvisionner()
 	{
 		if (quantite < 10)
 			quantite = 10;
 	}
+
+	//Fonction qui permet de faire l'approvisionnement de toutes les fleurs
 	static public void ApprovisionnerTout()
 	{
 		List<Fleur> fleurs = Fleur.Fleurs;
@@ -56,6 +69,8 @@ public class Fleur : Article
 		Console.WriteLine("Toutes les fleurs ont été réapprovisionnées.");
 
 	}
+
+	//Fonction qui permet d'afficher les informations de toutes les fleurs
 	static public void AfficherTout()
 	{
 		Console.WriteLine("Liste des fleurs disponibles:");
@@ -64,6 +79,8 @@ public class Fleur : Article
 			fleur.Afficher();
 		}
 	}
+
+	//Fonction qui permet d'importer les données des fleurs à partir d'un fichier CSV
 	static public void ImporterDonnees(string path)
 	{	
 		using (var reader = new StreamReader(path))
@@ -78,6 +95,7 @@ public class Fleur : Article
 		}
 	}
 
+	//Fonction qui permet de lier les champs du cvs au attributs de la classe lors de l'importation des données des fleurs d'un fichier CSV
 	public sealed class FleurMap : ClassMap<Fleur>
 	{
 		public FleurMap()
@@ -87,10 +105,5 @@ public class Fleur : Article
 			Map(m => m.couleur).Name("Couleur");
 			Map(m => m.description).Name("Caractéristiques");
 		}
-	}
-
-	public void AfficherNomCout()
-	{
-		Console.WriteLine($"{nom} : {prixUnitaire}$");
 	}
 }

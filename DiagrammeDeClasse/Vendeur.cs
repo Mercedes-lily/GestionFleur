@@ -27,12 +27,9 @@ public class Vendeur : Utilisateur, IVendeur
 
 	public static List<Vendeur> getVendeurs(){return vendeurs;}
 
-	public void GestionCommande()
-	{
-		throw new NotImplementedException();
-	}
 
-	public void EffectuerTransaction()
+	/********************************************--Fonctions--**************************************************/
+	public void GestionCommande()
 	{
 		throw new NotImplementedException();
 	}

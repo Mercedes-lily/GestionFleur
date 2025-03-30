@@ -1,7 +1,5 @@
-using Json.Net;
-using System;
 using System.Collections.Generic;
-using System.IO;
+
 
 public class Fournisseur : Utilisateur, IFournisseur
 {
@@ -18,6 +16,9 @@ public class Fournisseur : Utilisateur, IFournisseur
 	public string NoFournisseur { get { return noFournisseur;} }
 	public static List<Fournisseur> GetFournisseurs() { return fournisseurs ; }
 
+	/********************************************--Fonctions--**************************************************/
+	
+	//Fonction qui permet d'effectuer l'approvisionnement de toutes le fleurs
 	public void EffectuerApprovisionnement()
 	{
 		Fleur.ApprovisionnerTout();

@@ -33,23 +33,16 @@ public class Facture
 	public TypeDePaiement Type { get { return type; } }
 	public static List<Facture> GetFactures(){ return factures; }
 
-	public void EnregistrerFacture()
-	{
-		string PathFile = "../../Facture/Factures.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du client");
-		string ClientJSON = JsonNet.Serialize(factures);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, ClientJSON);
-	}
+	/********************************************--Fonctions--**************************************************/
 
+	//Fonction qui permet de fermer la facture une fois le paiement effectué
 	public void FacturerClient()
 	{
 			paiementEffectue = true;
 			Console.WriteLine("Fermeture de la facture");
 	}
 
+	//Fonction qui permet au client de choisir le mode de paiement par l'utilisateur
 	public void ChoisirModePaiement()
 	{
 		Console.WriteLine("Veuillez choisir le mode de paiement qui sera utilisé");
@@ -79,6 +72,7 @@ public class Facture
 		}
 	}
 
+	//Fonction qui permet de suivre la facture et de facturer le client
 	public void SuiviFacture(string noClient, string noVendeur, int noCommande, List<Article> ArticlesCommandes)
 	{
 		this.vendeur = noVendeur;
@@ -104,6 +98,7 @@ public class Facture
 		}
 	}
 
+	//Fonction qui permet d'imprimer la facture et de l'afficher
 	public void ImpressionFacture(List<Article> ArticlesCommandes)
 	{
 		Console.WriteLine("Facture no: {0} pour la commande {1} vendu par :{2} au client {3}", no, noCommande, vendeur, client);

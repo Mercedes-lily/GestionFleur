@@ -4,11 +4,11 @@ using System.Linq;
 using System.IO;
 
 
-public class Proprietaire : Utilisateur
+public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 {
-	public Proprietaire(string n, string p) : base(n, p)
-	{
-	}
+	public Proprietaire(string n, string p) : base(n, p) {}
+
+	/********************************************--Fonctions--**************************************************/
 
 	//Fonction qui regarde si l'utilisateur existe déja.
 	public bool NouvelUtilisateur(string no)
@@ -86,7 +86,7 @@ public class Proprietaire : Utilisateur
 		return null;
 	}
 
-
+	//Fonction qui permet de gérer le commerce Interface Utilisateur du Propriétaire
 	public void GestionCommerce()
 	{
 		Console.Clear();
@@ -119,7 +119,7 @@ public class Proprietaire : Utilisateur
 			else if (reponse.Trim(' ') == "3")
 			{
 				Console.Clear();
-				Fleur.ApprovisionnerTout();
+				EffectuerApprovisionnement();
 			}
 			else if (reponse.Trim(' ') == "4")
 			{
@@ -198,6 +198,7 @@ public class Proprietaire : Utilisateur
 		return false;
 	}
 
+	//Fonction qui permet de gérer les commandes (Annulation et Facturation)
 	public void GestionCommande()
 	{
 		if (Commande.getListCommande().Count() == 0)
@@ -223,6 +224,7 @@ public class Proprietaire : Utilisateur
 		}
 	}
 
+	//Fonction qui permet d'annuler une commande
 	public void Annulation()
 	{
 		string reponse;
@@ -247,6 +249,7 @@ public class Proprietaire : Utilisateur
 		}
 	}
 
+	//Fonction qui permet de facturer une commande
 	public void Facturer()
 	{
 		string reponse;
@@ -279,6 +282,8 @@ public class Proprietaire : Utilisateur
 			Console.WriteLine("Entrée Invalide");
 		}
 	}
+
+	//Fonction qui permet l'enregistrement des données des utilisateurs
 	public void EnregistrerDonneesUtilisateurs()
 	{
 		string PathFile = "../../Proprietaire/Proprietaire.json";
@@ -322,6 +327,7 @@ public class Proprietaire : Utilisateur
 		}
 	}
 
+	//Fonction qui permet l'enregistrement des données
 	public void EnregistrerDonnees()
 	{
 		string PathFile = "../../Commande/Commandes.json";
@@ -353,5 +359,11 @@ public class Proprietaire : Utilisateur
 		{
 			writer.Write(ClientJSON);
 		}
+	}
+
+	//Fonction qui permet d'effectuer l'approvisionnement
+	public void EffectuerApprovisionnement()
+	{
+		Fleur.ApprovisionnerTout();
 	}
 }
