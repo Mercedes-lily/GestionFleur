@@ -49,6 +49,7 @@ public class Commande
 	//Fonction qui permet au client de sélectionner les articles qu'il veut commander
 	public void SelectionTypesFleurs()
 	{
+		Console.Clear();
 		bool ChoixFleurEnCours = true;
 		List<Fleur> fleurs = Fleur.Fleurs;
 		while (ChoixFleurEnCours)

@@ -197,7 +197,7 @@ public class Proprietaire : Utilisateur
 				Annulation();
 			else if (reponse == "2")
 				Facturer();
-			else if (reponse == "N")
+			else if (reponse == "N" || reponse == "n")
 				return;
 			else
 				Console.WriteLine("Entrée invalide");
@@ -214,6 +214,8 @@ public class Proprietaire : Utilisateur
 		{
 			Console.WriteLine("Quel commande voulez-vous annuler");
 			reponse = Console.ReadLine().Trim(' ');
+			if (reponse == "N" || reponse == "n")
+				return;
 			foreach (Commande c in Commande.getListCommande())
 			{
 				if (Convert.ToInt32(reponse) == c.No)
@@ -243,8 +245,10 @@ public class Proprietaire : Utilisateur
 			return;
 		while (true)
 		{
-			Console.WriteLine("Quel commande voulez-vous facturée ?");
+			Console.WriteLine("Quelle commande voulez-vous facturer?");
 			reponse = Console.ReadLine().Trim(' ');
+			if (reponse == "N" || reponse == "n")
+				return;
 			foreach (Commande c in Commande.getListCommande())
 			{
 				if (Convert.ToInt32(reponse) == c.No && c.FactureClient.PaiementEffectue == false)
