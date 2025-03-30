@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\bouquet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\bouquet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\diagrammedeclasse\\commande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\commande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\propri\u00E9taire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\propri\u00E9taire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\fleur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\fleur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\vendeur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\vendeur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\propri\u00E9taire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\propri\u00E9taire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\fournisseur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\fournisseur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\commande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\commande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|c:\\users\\boula\\onedrive\\documents\\uqar\\poo2\\gestionfleur\\diagrammedeclasse\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|solutionrelative:diagrammedeclasse\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{609F0464-1DB9-4CE7-BC5D-6B871ED4D7B8}|DiagrammeDeClasse\\DiagrammeDeClasse.csproj|C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\diagrammedeclasse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,50 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Vendeur.cs",
-              "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Vendeur.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Vendeur.cs",
-              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Vendeur.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Vendeur.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T15:12:38.098Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Article.cs",
-              "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Article.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Article.cs",
-              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Article.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Article.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T14:40:50.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Fleur.cs",
-              "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Fleur.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Fleur.cs",
-              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Fleur.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Fleur.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAIwBsAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T14:39:54.032Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -95,65 +48,77 @@
               "RelativeDocumentMoniker": "DiagrammeDeClasse\\Fournisseur.cs",
               "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Fournisseur.cs",
               "RelativeToolTip": "DiagrammeDeClasse\\Fournisseur.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswCAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAswCMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-29T14:38:17.202Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Program.cs",
               "RelativeDocumentMoniker": "DiagrammeDeClasse\\Program.cs",
               "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Program.cs",
               "RelativeToolTip": "DiagrammeDeClasse\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAArwA8AAABjAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAArwAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T19:40:19.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T19:40:19.793Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Bouquet.cs",
-              "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Bouquet.cs",
-              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Bouquet.cs",
-              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Bouquet.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Bouquet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Fleur.cs",
+              "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Fleur.cs",
+              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Fleur.cs",
+              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Fleur.cs",
+              "RelativeToolTip": "DiagrammeDeClasse\\Fleur.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAwEUAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T18:21:17.151Z",
+              "WhenOpened": "2025-03-30T14:42:57.625Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Client.cs",
+              "RelativeDocumentMoniker": "DiagrammeDeClasse\\Client.cs",
+              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Client.cs",
+              "RelativeToolTip": "DiagrammeDeClasse\\Client.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvyYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T14:45:32.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Propri\u00E9taire.cs",
               "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Propri\u00E9taire.cs",
               "RelativeDocumentMoniker": "DiagrammeDeClasse\\Propri\u00E9taire.cs",
               "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Propri\u00E9taire.cs",
               "RelativeToolTip": "DiagrammeDeClasse\\Propri\u00E9taire.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAxwAIAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAuwAwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-29T15:11:04.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Commande.cs",
               "DocumentMoniker": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Commande.cs",
               "RelativeDocumentMoniker": "DiagrammeDeClasse\\Commande.cs",
-              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Commande.cs",
-              "RelativeToolTip": "DiagrammeDeClasse\\Commande.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\boula\\OneDrive\\Documents\\uqar\\POO2\\GestionFleur\\DiagrammeDeClasse\\Commande.cs*",
+              "RelativeToolTip": "DiagrammeDeClasse\\Commande.cs*",
+              "ViewState": "AgIAADIAAAAAAAAAAAAQwFEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-28T19:37:18.496Z",
               "EditorCaption": ""

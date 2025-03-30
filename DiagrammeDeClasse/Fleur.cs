@@ -66,7 +66,28 @@ public class Fleur : Article
 	{
 		Console.WriteLine($"Nom: {nom} Prix unitaire: {prixUnitaire} Couleur {couleur} Description {description}");
 	}
+	public void Approvisionner()
+	{
+		if (quantite < 10)
+			quantite = 10;
+	}
+	static public void ApprovisionnerTout()
+	{
+		List<Fleur> fleurs = Fleur.Fleurs;
+		foreach (Fleur f in fleurs)
+		{
+			f.Approvisionner();
+		}
+		Console.WriteLine("Toutes les fleurs ont été réapprovisionnées.");
 
+	}
+	static public void AfficherTout()
+	{
+		foreach (Fleur fleur in fleurs)
+		{
+			fleur.Afficher();
+		}
+	}
 	static public void ImporterDonnees(string path)
 	{	
 		using (var reader = new StreamReader(path))
