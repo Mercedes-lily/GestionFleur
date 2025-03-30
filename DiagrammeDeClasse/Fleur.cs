@@ -14,53 +14,28 @@ public class Fleur : Article
 	private int quantite = 10;
 	static private List<Fleur> fleurs = new List<Fleur>();
 
+	//Constructeur de base pour la lecture cohérente du fichier CSV
 	public Fleur(): base()
 	{ }
+
+	//Constructeur
 	public Fleur(string nom, double prixUnitaire,  string couleur, string description) : base(prixUnitaire)
 	{
 		this.nom = nom;
 		this.couleur = couleur;
 		this.description = description;
 	}
+
+	//Acesseur
 	public int Quantite 
 	{ 
-		get 
-		{ 
-			return quantite; 
-		}
-		set
-		{ 
-			quantite = value;
-		} 
+		get{ return quantite; }
+		set{ quantite = value;} 
 	}
-	public static List<Fleur> Fleurs 
-	{ 
-		get 
-		{ 
-			return fleurs; 
-		} 
-	}
-	public string Nom 
-	{ 
-		get 
-		{ 
-			return nom;
-		} 
-	}
-	public string Description 
-	{ 
-		get 
-		{ 
-			return description; 
-		} 
-	}
-	public string Couleur 
-	{ 
-		get 
-		{
-			return couleur;
-		} 
-	}
+	public static List<Fleur> Fleurs {get { return fleurs; } }
+	public string Nom { get { return nom;} }
+	public string Description { get { return description; } }
+	public string Couleur { get {return couleur;} }
 
 	public override void Afficher()
 	{

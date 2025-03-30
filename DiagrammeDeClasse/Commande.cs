@@ -8,30 +8,30 @@ public class Commande
 {
 	private int no;
 	private static int dernierNumero = 0;
-	private List<Article> ListeArticles = new List<Article>();
+	//Contient la liste des articles dnas la commande actuelles
+	private List<Article> listeArticles = new List<Article>();
+	//Contient la liste de toutes les commandes 
 	private static List<Commande> commandes = new List<Commande>();
 	private Vendeur vendeur = null;
 	private Facture facture = new Facture();
 	private Client client = null;
 
-
-
-	//Constructeur de Commande
+	//Constructeur
 	public Commande()
 	{
 		this.no = dernierNumero + 1;
 		dernierNumero = this.no;
 	}
 
-	public static List<Commande> getListCommande()
-	{
-		return commandes;
-	}
-
+	//Acesseur
+	public int No { get { return no; } }
 	public Vendeur Vendeur { get { return vendeur; } set { vendeur = value; } }
-	public int No { get { return no; }}
-
+	public Client Client { get { return client; } }
 	public Facture FactureClient { get { return facture; } }
+	public List<Article> ListeArticles { get { return listeArticles; } }
+
+
+	public static List<Commande> getListCommande(){return commandes;}
 
 
 	//Fonction qui permet d<enregister la commande dans un json
@@ -71,7 +71,7 @@ public class Commande
 					}
 					while (nb > 0)
 					{
-						ListeArticles.Add(f);
+						listeArticles.Add(f);
 						nb--;
 						f.Quantite--;
 					}
@@ -100,7 +100,7 @@ public class Commande
 				{
 					Bouquet bouquet = new Bouquet();
 					bouquet.CreerBouquetPersonnalise();
-					ListeArticles.Add(bouquet);
+					listeArticles.Add(bouquet);
 				}
 				else if (reponse == "N" || reponse == "n")
 					ChoixBouquetEnCours = false;
@@ -119,7 +119,7 @@ public class Commande
 				{
 					Bouquet bouquet = new Bouquet();
 					bouquet.CreerBouquetPersonnalise();
-					ListeArticles.Add(bouquet);
+					listeArticles.Add(bouquet);
 				}
 				else if (reponse == "N" || reponse == "n")
 					ChoixBouquetEnCours = false;
@@ -131,7 +131,7 @@ public class Commande
 						if (reponse.Trim(' ') == b.NoBouquet)
 						{
 							b.AjouterMessageCarte();
-							ListeArticles.Add(b);//enlever les lfeur de l<inventaire   attetion le message va etre changer s<il ajoute le mem bouquet
+							listeArticles.Add(b);//enlever les lfeur de l<inventaire   attetion le message va etre changer s<il ajoute le mem bouquet
 							trouver = true;
 							b.Afficher();
 							break;
@@ -165,7 +165,7 @@ public class Commande
 				Console.WriteLine("Choix invalide");
 		}
 		Console.WriteLine("Voici les articles de la commande");
-		if(ListeArticles.Count() != 0)
+		if(listeArticles.Count() != 0)
 		{
 			commandes.Add(this);
 			client = c;
@@ -254,8 +254,8 @@ public class Commande
 	{
 		facture = new Facture();
 		if(Vendeur == null)
-			facture.SuiviFacture(client.NoClient, "Propriétaire", no, ListeArticles);
+			facture.SuiviFacture(client.NoClient, "Propriétaire", no, listeArticles);
 		else
-			facture.SuiviFacture(client.NoClient, vendeur.NoVendeur, no, ListeArticles);
+			facture.SuiviFacture(client.NoClient, vendeur.NoVendeur, no, listeArticles);
 	}
 }

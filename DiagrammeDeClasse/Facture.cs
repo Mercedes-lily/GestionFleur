@@ -9,20 +9,29 @@ public class Facture
 	private int no;
 	private static int dernierNumeroFacture = 0;
 	private double totalTransaction = 0;
-	List<Facture> Factures = new List<Facture>();
+	List<Facture> factures = new List<Facture>();
 	private string vendeur;
 	private string client;
 	private TypeDePaiement type;
 	private int noCommande;
 	bool paiementEffectue = false;
-
+	
+	//Constructeur
 	public Facture()
 	{
 		this.no = dernierNumeroFacture + 1;
 		dernierNumeroFacture++;
 	}
 
-	public bool PaiementEffectue { get; }
+	//Acesseur
+	public int No { get { return no; } }
+	public bool PaiementEffectue { get { return paiementEffectue; } }
+	public double TotalTransaction { get { return totalTransaction; } }
+	public string Vendeur { get { return vendeur; } }
+	public string Client{ get { return client; } }
+	public int NoCommande { get { return noCommande; } }
+	public TypeDePaiement Type { get { return type; } }
+	public List<Facture> Factures { get { return factures; } }
 
 	public void EnregistrerFacture()
 	{
@@ -30,7 +39,7 @@ public class Facture
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
 		Console.WriteLine("Enregistrement des données du client");
-		string ClientJSON = JsonNet.Serialize(Factures);
+		string ClientJSON = JsonNet.Serialize(factures);
 		//Ajouter une separation avec des \n
 		File.WriteAllText(PathFile, ClientJSON);
 	}
@@ -77,7 +86,7 @@ public class Facture
 		this.noCommande = noCommande;
 		foreach (Article a in ArticlesCommandes)
 			totalTransaction += a.PrixUnitaire;
-		Factures.Add(this);
+		factures.Add(this);
 		while(true)
 		{
 			Console.WriteLine("Effectuer la transaction O/N");
