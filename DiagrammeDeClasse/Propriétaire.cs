@@ -99,6 +99,7 @@ public class Proprietaire : Utilisateur
 
 	public void GestionCommerce()
 	{
+		Console.Clear();
 		while (true)
 		{
 			Console.WriteLine("Bonjour {0} {1}, que voulez-vous faire?", prenom, nom);
@@ -110,19 +111,34 @@ public class Proprietaire : Utilisateur
 			Console.WriteLine("6. Quitter");
 			string reponse = Console.ReadLine();
 			if (reponse.Trim(' ') == "1")
+			{
+				Console.Clear();
 				AjouterUtilisateur();
+			}
 			else if (reponse.Trim(' ') == "2")
+			{
+				Console.Clear();
 				AttribuerVendeur();
+			}
 			else if (reponse.Trim(' ') == "3")
+			{
+				Console.Clear();
 				Fleur.ApprovisionnerTout();
+			}
 			else if (reponse.Trim(' ') == "4")
+			{
+				Console.Clear();
 				GestionCommande();
+			}
 			//else if (reponse.Trim(' ') == "4")
 			//GestionCommande();
 			else if (reponse.Trim(' ') == "6")
 				return;
 			else
+			{
 				Console.WriteLine("Mauvaise Entrée");
+				Console.WriteLine();
+			}
 		}
 
 	}

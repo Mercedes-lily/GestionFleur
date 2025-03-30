@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Json.Net;
 using System.IO;
 
-
-
 public class Client : Utilisateur
 {
 	private string noClient;
@@ -29,9 +27,12 @@ public class Client : Utilisateur
 		Clients.Add(this);
 		EnregistrerDonneesUtilisateur(this);
 	}
+
 	public void PasserCommande()
 	{
-		Console.WriteLine("Bonjour {0} {1}, choissions ensembles les fleurs de votre commande.", prenom, nom);
+		Console.Clear();
+		Console.WriteLine("Bonjour {0} {1}, choisissons ensembles les fleurs de votre commande.", prenom, nom);
+		Console.WriteLine();
 		Commande commande = new Commande();
 		commande.SelectionDesArticles(this);
 		if (commande.ListeArticles.Count > 0)

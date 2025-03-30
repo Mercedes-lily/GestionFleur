@@ -54,6 +54,8 @@ public class Commande
 		List<Fleur> fleurs = Fleur.Fleurs;
 		while (ChoixFleurEnCours)
 		{
+			Console.Clear();
+			Console.WriteLine();
 			bool entreeValide = false;
 			Fleur.AfficherTout();
 			Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre commande. Entrez N pour annuler.");
@@ -167,9 +169,9 @@ public class Commande
 		bool commandeEnCours = true;
 		while (commandeEnCours)
 		{
-			Console.WriteLine("Selection des articles");
-			Console.WriteLine("Voulez-vous ajouter des fleurs individuels ou des bouquets F/B");
-			Console.WriteLine("Pour terminer l'ajout d'article, veuillez entrer N");
+			Console.WriteLine("Sélection des articles");
+			Console.WriteLine("Voulez-vous ajouter des fleurs individuelles ou des bouquets (F/B)");
+			Console.WriteLine("Pour terminer l'ajout d'article, veuillez appuyer sur N");
 			string reponse = Console.ReadLine();
 			if (reponse == "F" || reponse == "f")
 				SelectionTypesFleurs();
@@ -181,6 +183,8 @@ public class Commande
 				Console.WriteLine("Choix invalide");
 		}
 		Console.WriteLine("Voici les articles de la commande");
+		AfficherDetailsCommandes();
+		Console.WriteLine();
 		if(listeArticles.Count() != 0)
 		{
 			commandes.Add(this);
@@ -198,7 +202,7 @@ public class Commande
 	public void Annuler()
 	{
 		commandes.Remove (this);
-		Console.WriteLine("Commande Annule");
+		Console.WriteLine("Commande Annulée");
 	}
 
 	public void Valider()
@@ -213,7 +217,10 @@ public class Commande
 
 	public void AfficherDetailsCommandes()
 	{
-		throw new NotImplementedException();
+		foreach (Article article in listeArticles)
+		{
+			article.Afficher();
+		}
 	}
 
 	public bool Continuer(string str)
@@ -252,7 +259,7 @@ public class Commande
 			Console.WriteLine(v.NoVendeur);
 		while(true)
 		{
-			Console.WriteLine("Veuillez entrer le numero du vendeur pour faire l'attribution");
+			Console.WriteLine("Veuillez entrer le numéro du vendeur pour faire l'attribution");
 			reponse = Console.ReadLine().Trim(' ');
 			foreach (Vendeur v in Vendeur.getVendeurs())
 			{
@@ -263,7 +270,7 @@ public class Commande
 					return;
 				}
 			}
-			Console.WriteLine("Le numero entrer ne corespond pas a un vendeur");
+			Console.WriteLine("Le numéro entré ne corespond pas à un vendeur");
 		}
 	}
 	public void GenererFactureClient()
