@@ -88,4 +88,9 @@ public class Fleur : Article
 			Map(m => m.description).Name("Caractéristiques");
 		}
 	}
+
+	public void AfficherNomCout()
+	{
+		Console.WriteLine($"{nom} : {prixUnitaire}0$");
+	}
 }

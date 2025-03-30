@@ -33,22 +33,16 @@ public class Bouquet : Article
 
 	public static List<Bouquet> GetBouquetsPredefini() { return bouquetsPredefini; }
 
+	/********************************************--Fonctions--**************************************************/
+
 	//Parcourir la liste des fleurs et ajouter une copie de la fleur choisie dans le bouquet
 	public void AjouterFleurs(Fleur fleur)
 	{
 		fleurs.Add(fleur);
 		prixUnitaire += fleur.PrixUnitaire;
 	}
-	public void EnregistrerModele()
-	{
-		string PathFile = "../../Modele/Modeles.json";
-		if (!File.Exists(PathFile))
-			File.Create(PathFile);
-		Console.WriteLine("Enregistrement des données du modele de bouquet");
-		string BouquetJSON = JsonNet.Serialize(bouquetsPredefini);
-		//Ajouter une separation avec des \n
-		File.WriteAllText(PathFile, BouquetJSON);
-	}
+
+	//Ajouter un message à la carte du bouquet
 	public void AjouterMessageCarte()
 	{
 		Console.WriteLine("Quel message voulez-vous mettre sur la carte?");
@@ -56,15 +50,16 @@ public class Bouquet : Article
 		carte.Message = message;
 	}
 
+	//Afficher le bouquet
 	public override void Afficher()
 	{
 		Console.WriteLine("Numero du bouquet: {0}", noBouquet);
 		Console.WriteLine("Message de la carte: {0}", carte.Message);
 		foreach (Fleur f in fleurs)
 		{
-			f.Afficher();
+			f.AfficherNomCout();
 		}
-		Console.WriteLine("Cout total du bouquet: {0}", PrixUnitaire);
+		Console.WriteLine("Cout total du bouquet: {0}$", PrixUnitaire);
 	}
 
 
