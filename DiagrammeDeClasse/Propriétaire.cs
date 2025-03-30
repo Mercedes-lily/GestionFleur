@@ -119,6 +119,7 @@ public class Proprietaire : Utilisateur
 			{
 				Console.Clear();
 				GestionCommande();
+			}
 			else if (reponse.Trim(' ') == "5")
 			{
 				EnregistrerDonneesUtilisateurs();
