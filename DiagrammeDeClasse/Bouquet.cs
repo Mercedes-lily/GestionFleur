@@ -138,4 +138,13 @@ public class Bouquet : Article
 	{
 		bouquetsPredefini.Add(bouquet);
 	}
+
+	//Retirer de l'inventaire les fleurs lors de l'ajout d'un bouquet
+	public void RetraitFleurBouquetInventaire()
+	{
+		foreach (Fleur f in fleurs)
+		{
+			f.Quantite--;
+		}
+	}
 }

@@ -41,4 +41,26 @@ public class Client : Utilisateur
 		if (commande.ListeArticles.Count > 0)
 			commande.FactureClient.ChoisirModePaiement();
 	}
+
+	public void ActionClient()
+	{
+		Console.Clear();
+		Console.WriteLine("Bonjour {0} {1}, que voulez-vous faire?", prenom, nom);
+		Console.WriteLine("Effectuons la commande");
+		while (true)
+		{
+			PasserCommande();
+			Console.WriteLine("Voulez-vous effectuer une autre commande? O/N");
+			while (true)
+			{
+				string reponse = Console.ReadLine().Trim(' ');
+				if (reponse == "O" || reponse == "o")
+					break;
+				else if (reponse == "N" || reponse == "n")
+					return;
+				else
+					Console.WriteLine("Veuillez entrer une réponse valide");
+			}
+		}
+	}
 }

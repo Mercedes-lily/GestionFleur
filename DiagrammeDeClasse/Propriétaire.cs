@@ -143,7 +143,6 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 				Console.WriteLine();
 			}
 		}
-
 	}
 
 	//Attribuer les vendeurs aux commandes
@@ -264,7 +263,10 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			}
 		}
 		if (aFacturer == 0)
+		{
+			Console.WriteLine("Il n'y a aucune commande à facturer");
 			return;
+		}
 		while (true)
 		{
 			Console.WriteLine("Quelle commande voulez-vous facturer?");

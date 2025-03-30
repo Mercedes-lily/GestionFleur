@@ -122,6 +122,7 @@ public class Commande
 			Bouquet bouquet = new Bouquet();
 			bouquet.CreerBouquetPersonnalise();
 			listeArticles.Add(bouquet);
+			bouquet.RetraitFleurBouquetInventaire();
 		}
 		else if (reponse == "N" || reponse == "n")
 			return false;
@@ -134,6 +135,7 @@ public class Commande
 				{
 					b.AjouterMessageCarte();
 					listeArticles.Add(b);
+					b.RetraitFleurBouquetInventaire();
 					trouver = true;
 					b.Afficher();
 					break;
@@ -156,6 +158,7 @@ public class Commande
 			Bouquet bouquet = new Bouquet();
 			bouquet.CreerBouquetPersonnalise();
 			listeArticles.Add(bouquet);
+			bouquet.RetraitFleurBouquetInventaire();
 		}
 		else if (reponse == "N" || reponse == "n")
 			return false;

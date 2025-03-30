@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 
 public class Fournisseur : Utilisateur, IFournisseur
@@ -22,5 +23,13 @@ public class Fournisseur : Utilisateur, IFournisseur
 	public void EffectuerApprovisionnement()
 	{
 		Fleur.ApprovisionnerTout();
+	}
+
+	public void ActionFournisseur()
+	{
+		Console.Clear();
+		Console.WriteLine("Bonjour {0} {1}, que voulez-vous faire?", prenom, nom);
+		Console.WriteLine("Effectuons l'approvisionnement");
+		EffectuerApprovisionnement();
 	}
 }
