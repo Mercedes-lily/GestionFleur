@@ -139,7 +139,7 @@ public class Commande
 						if (reponse.Trim(' ') == b.NoBouquet)
 						{
 							b.AjouterMessageCarte();
-							listeArticles.Add(b);//enlever les lfeur de l<inventaire   attetion le message va etre changer s<il ajoute le mem bouquet
+							listeArticles.Add(b);
 							trouver = true;
 							b.Afficher();
 							break;
