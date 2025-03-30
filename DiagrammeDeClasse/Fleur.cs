@@ -58,6 +58,7 @@ public class Fleur : Article
 	}
 	static public void AfficherTout()
 	{
+		Console.WriteLine("Liste des fleurs:");
 		foreach (Fleur fleur in fleurs)
 		{
 			fleur.Afficher();
