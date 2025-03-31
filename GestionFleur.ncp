@@ -1,0 +1,382 @@
+<Project>
+  <Name>GestionFleur</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.ClassDiagram" assembly="NClass.DiagramEditor, Version=2.8.0.2, Culture=neutral, PublicKeyToken=null">
+    <Name>DiagrammeDeClasse</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Vendeur</Name>
+        <Access>Public</Access>
+        <Location left="392" top="274" />
+        <Size width="212" height="136" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int noVendeur</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Fleur</Name>
+        <Access>Public</Access>
+        <Location left="1175" top="719" />
+        <Size width="163" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int code</Member>
+        <Member type="Field">private string nom</Member>
+        <Member type="Field">private string couleur</Member>
+        <Member type="Field">private string description</Member>
+        <Member type="Method">public void ImporterDonnées()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Bouquet</Name>
+        <Access>Public</Access>
+        <Location left="941" top="1029" />
+        <Size width="163" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">const int labeur = 2</Member>
+        <Member type="Field">const int coutCarte = 1</Member>
+        <Member type="Method">public void CalculerPrix()</Member>
+        <Member type="Method">public void AjouterFleurs()</Member>
+        <Member type="Method">public void EnregistrerModèle()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Propriétaire</Name>
+        <Access>Public</Access>
+        <Location left="785" top="299" />
+        <Size width="163" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void AjouterUtilisateur()</Member>
+        <Member type="Method">public void AttribuerVendeur()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Fournisseur</Name>
+        <Access>Public</Access>
+        <Location left="1175" top="299" />
+        <Size width="163" height="133" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int noFournisseur</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Carte</Name>
+        <Access>Public</Access>
+        <Location left="653" top="1052" />
+        <Size width="163" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private string message</Member>
+        <Member type="Method">public void InscrireMessage()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Commande</Name>
+        <Access>Public</Access>
+        <Location left="89" top="705" />
+        <Size width="176" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int No</Member>
+        <Member type="Field">int NombreArticles</Member>
+        <Member type="Method">public void SelectionDesArticles()</Member>
+        <Member type="Method">public void IndiquerPreferance()</Member>
+        <Member type="Method">public void EnregistrerCommande()</Member>
+        <Member type="Method">public void Annuler()</Member>
+        <Member type="Method">public void Valider()</Member>
+        <Member type="Method">public void FaireLeSuivi()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Facture</Name>
+        <Access>Public</Access>
+        <Location left="342" top="1065" />
+        <Size width="162" height="188" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int no</Member>
+        <Member type="Field">int date</Member>
+        <Member type="Field">int totalTransaction</Member>
+        <Member type="Method">public void EnregistrerFacture()</Member>
+        <Member type="Method">public void Payer()</Member>
+        <Member type="Method">public void ChoisirModePaiement()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>TypeDePaiement</Name>
+        <Access>Public</Access>
+        <Location left="52" top="1065" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Value>Credit</Value>
+        <Value>Debit</Value>
+        <Value>Comptant</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>Utilisateur</Name>
+        <Access>Public</Access>
+        <Location left="651" top="54" />
+        <Size width="243" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected string nom</Member>
+        <Member type="Field">protected string prenom</Member>
+        <Member type="Field">protected string adresse</Member>
+        <Member type="Field">protected string telephone</Member>
+        <Member type="Method">public abstract void EnregistrerDonneesUtilisateur()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Client</Name>
+        <Access>Public</Access>
+        <Location left="46" top="274" />
+        <Size width="162" height="121" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int noClient</Member>
+        <Member type="Method">public void PasserCommande()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Article</Name>
+        <Access>Public</Access>
+        <Location left="691" top="824" />
+        <Size width="163" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected int prixUnitaire</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IVendeur</Name>
+        <Access>Public</Access>
+        <Location left="392" top="514" />
+        <Size width="168" height="95" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void GestionCommande()</Member>
+        <Member type="Method">void EffectuerTransaction()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IFournisseur</Name>
+        <Access>Public</Access>
+        <Location left="960" top="582" />
+        <Size width="204" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void EffectuerApprovisionnement()</Member>
+      </Entity>
+    </Entities>
+    <Containers />
+    <Relationships>
+      <Relationship type="Generalization" first="10" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>595</X>
+          <Y>139</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="4" second="1">
+        <Label>approvissionne</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>variété de fleurs</StartRole>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="10" second="6">
+        <Label>effectue</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>19</X>
+          <Y>335</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>10</X>
+          <Y>838</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="6" second="7">
+        <Label>génère</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="8" second="7">
+        <Label>possède</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="11">
+        <Label>contient</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Generalization" first="1" second="11">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="2" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>904</X>
+          <Y>910</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="2" second="5">
+        <Label>possède</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>916</X>
+          <Y>1110</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>853</X>
+          <Y>1110</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="6" second="0">
+        <Label>est attribué à</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>248</X>
+          <Y>680</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>367</X>
+          <Y>333</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="3" second="6">
+        <Label>supervise</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>809</X>
+          <Y>458</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>324</X>
+          <Y>754</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="1" second="3">
+        <Label>approvisionne</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1127</X>
+          <Y>751</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>861</X>
+          <Y>442</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="2" second="1">
+        <Label>est composé de</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1179</X>
+          <Y>1136</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Realization" first="4" second="13">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1112</X>
+          <Y>416</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="0" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="12">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>760</X>
+          <Y>393</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>589</X>
+          <Y>573</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="13">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>973</X>
+          <Y>392</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1023</X>
+          <Y>454</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="0" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>506</X>
+          <Y>235</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>625</X>
+          <Y>190</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1267</X>
+          <Y>274</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>989</X>
+          <Y>146</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
