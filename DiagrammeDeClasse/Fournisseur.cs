@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System;
 
-
 public class Fournisseur : Utilisateur, IFournisseur
 {
 	private string noFournisseur;

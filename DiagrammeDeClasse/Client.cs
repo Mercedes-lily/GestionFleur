@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Json.Net;
-using System.IO;
 
 public class Client : Utilisateur
 {

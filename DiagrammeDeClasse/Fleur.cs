@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-
 public class Fleur : Article
 {
 	private string nom;
