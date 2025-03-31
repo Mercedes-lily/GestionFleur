@@ -29,7 +29,6 @@ public class Bouquet : Article
 
 	//Acesseur
 	public  Carte CarteBouquet { get { return carte; } }
-	private List<Fleur> Fleurs{ get { return fleurs; } }
 	public string NoBouquet { get { return noBouquet; } }
 
 	public static List<Bouquet> GetBouquetsPredefini() { return bouquetsPredefini; }
@@ -54,7 +53,6 @@ public class Bouquet : Article
 	//Afficher le bouquet
 	public override void Afficher()
 	{
-		Console.Clear();
 		Console.WriteLine("Numero du bouquet: {0}", noBouquet);
 		Console.WriteLine("Message de la carte: {0}", carte.Message);
 		foreach (Fleur f in fleurs)
@@ -74,6 +72,7 @@ public class Bouquet : Article
 			string reponse;
 			while (!found)
 			{
+				Console.Clear();
 				Fleur.AfficherTout();
 				Console.WriteLine("Veuillez entrer le nom de la fleur que vous voulez ajouter à votre bouquet");
 				reponse = Console.ReadLine();
@@ -122,7 +121,7 @@ public class Bouquet : Article
 				ChoixFleurEnCours = false;
 				if(fleurs.Count() != 0)
 				{
-					bouquetsPredefini.Add(this);
+					AjouterBouquetListe(this);
 					AjouterMessageCarte();
 				}
 			}
@@ -131,6 +130,7 @@ public class Bouquet : Article
 			else
 				Console.WriteLine("Entrée invalide");
 		}
+		Console.Clear();
 		Afficher();
 	}
 

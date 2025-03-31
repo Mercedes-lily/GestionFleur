@@ -89,6 +89,8 @@ public class Facture
 			{
 				FacturerClient();
 				ImpressionFacture(ArticlesCommandes);
+				Console.Write(" (Entrée pour continuer)");
+				Console.ReadLine();
 				return;
 			}
 			else if (reponse == "N" || reponse == "n")
@@ -101,13 +103,17 @@ public class Facture
 	//Fonction qui permet d'imprimer la facture et de l'afficher
 	public void ImpressionFacture(List<Article> ArticlesCommandes)
 	{
-		Console.WriteLine("Facture no: {0} pour la commande {1} vendu par :{2} au client {3}", no, noCommande, vendeur, client);
+		Console.WriteLine("Facture no: {0} pour la commande {1} vendu par :{2} au client {3}", dernierNumeroFacture, noCommande, vendeur, client);
 		Console.WriteLine("No de commande: {0}", noCommande);
-		Console.WriteLine("Les articles factures sont");
+		Console.WriteLine("Les articles facturés sont:");
+		Console.WriteLine();
 		foreach (Article a in ArticlesCommandes)
 		{
+			if (a is Fleur)
+				a.AfficherNomCout();
 			a.Afficher();
+			Console.WriteLine();
 		}
-		Console.WriteLine("Total de la transaction: {0} payer par {1}", totalTransaction, type);
+		Console.WriteLine("Total de la transaction: {0}$ payé par {1}", totalTransaction, type);
 	}
 }

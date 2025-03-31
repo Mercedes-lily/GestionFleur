@@ -33,7 +33,7 @@ public class Commande
 
 	public string Preference { get { return preference; } }
 
-	public static List<Commande> getListCommande(){return commandes;}
+	public static List<Commande> GetListCommande(){return commandes;}
 
 
 	/********************************************--Fonctions--**************************************************/
@@ -94,15 +94,14 @@ public class Commande
 	public void SelectionBouquets()
 	{
 		bool ChoixBouquetEnCours = true;
-		string reponse;
 		while (ChoixBouquetEnCours)
 		{
 			List<Bouquet> bouquets = Bouquet.GetBouquetsPredefini();
 
 			if (bouquets.Count() == 0)
-				ChoixBouquetEnCours = SansBouquetPredefini();
+				SansBouquetPredefini();
 			else
-				ChoixBouquetEnCours = AvecBouquetPredefini();
+				AvecBouquetPredefini();
 			ChoixBouquetEnCours = Continuer("Voulez-vous ajouter d'autres bouquets à votre commande? O/N");
 		}
 	}
@@ -186,7 +185,7 @@ public class Commande
 			else
 				Console.WriteLine("Choix invalide");
 		}
-		Console.WriteLine("Voici les articles de la commande");
+		Console.WriteLine("Voici les articles de la commande:");
 		AfficherDetailsCommandes();
 		if(listeArticles.Count() != 0)
 		{
@@ -217,7 +216,9 @@ public class Commande
 		foreach (Article a in listeArticles)
 		{
 			a.Afficher();
+			Console.WriteLine();
 		}
+		Console.WriteLine();
 	}
 
 	//Fonction qui vérifie si l'utilisateur veut continuer ou non
@@ -249,19 +250,19 @@ public class Commande
 	public void AttribuerVendeur()
 	{
 		string reponse;
-		if (Vendeur.getVendeurs().Count() == 0)
+		if (Vendeur.GetVendeurs().Count() == 0)
 		{
 			Console.WriteLine("Aucun vendeur n'est disponible pour l'attribution");
 			return;
 		}
 		Console.WriteLine("Voici les vendeurs disponibles");
-		foreach (Vendeur v in Vendeur.getVendeurs())
+		foreach (Vendeur v in Vendeur.GetVendeurs())
 			Console.WriteLine(v.NoVendeur);
 		while(true)
 		{
 			Console.WriteLine("Veuillez entrer le numero du vendeur pour faire l'attribution");
 			reponse = Console.ReadLine().Trim(' ');
-			foreach (Vendeur v in Vendeur.getVendeurs())
+			foreach (Vendeur v in Vendeur.GetVendeurs())
 			{
 				if (v.NoVendeur == reponse)
 				{
@@ -274,10 +275,9 @@ public class Commande
 		}
 	}
 
-	//Fonction qui permet de générer la facture du client
-	public void GenererFactureClient()
+	//Fonction qui permet de processer la facture du client
+	public void ProcesserFactureClient()
 	{
-		facture = new Facture();
 		if(Vendeur == null)
 			facture.SuiviFacture(client.NoClient, "Propriétaire", no, listeArticles);
 		else

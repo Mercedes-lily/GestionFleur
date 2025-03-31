@@ -1,3 +1,5 @@
+using System;
+
 public abstract class Article
 {
 	protected double prixUnitaire;
@@ -19,4 +21,10 @@ public abstract class Article
 
 	/********************************************--Fonctions--**************************************************/
 	public abstract void Afficher();
+
+	//Fonction Pour permettre d'afficher sous un autre format les fleurs. Définie uniquement dans Fleur
+	public virtual void AfficherNomCout()
+	{
+		Console.WriteLine();
+	}
 }

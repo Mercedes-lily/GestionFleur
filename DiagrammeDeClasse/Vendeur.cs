@@ -25,7 +25,7 @@ public class Vendeur : Utilisateur, IVendeur
 		set{this.noVendeur = value;}
 	}
 
-	public static List<Vendeur> getVendeurs(){return vendeurs;}
+	public static List<Vendeur> GetVendeurs(){return vendeurs;}
 
 
 	/********************************************--Fonctions--**************************************************/
@@ -37,7 +37,7 @@ public class Vendeur : Utilisateur, IVendeur
 			string reponse;
 			int aFacturer = 0;
 			Console.WriteLine("Voici la liste des commandes non Facturé");
-			foreach (Commande c in Commande.getListCommande())
+			foreach (Commande c in Commande.GetListCommande())
 			{
 				if (c.FactureClient.PaiementEffectue == false)
 				{
@@ -54,11 +54,13 @@ public class Vendeur : Utilisateur, IVendeur
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
-			foreach (Commande c in Commande.getListCommande())
+			foreach (Commande c in Commande.GetListCommande())
 			{
 				if (Convert.ToInt32(reponse) == c.No && c.FactureClient.PaiementEffectue == false)
 				{
-					c.GenererFactureClient();
+					if (c.Vendeur == null)
+						c.Vendeur = this;
+					c.ProcesserFactureClient();
 					return;
 				}
 			}

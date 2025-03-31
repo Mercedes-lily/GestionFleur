@@ -46,7 +46,7 @@ public class Fleur : Article
 	}
 
 	//Fonction qui permet d'afficher le nom et le prix unitaire de la fleur
-	public void AfficherNomCout()
+	public override void AfficherNomCout()
 	{
 		Console.WriteLine($"{nom} : {prixUnitaire}0$");
 	}
@@ -66,7 +66,8 @@ public class Fleur : Article
 		{
 			f.Approvisionner();
 		}
-		Console.WriteLine("Toutes les fleurs ont été réapprovisionnées.");
+		Console.WriteLine("Toutes les fleurs ont été réapprovisionnées.(Entrée pour continer)");
+		Console.ReadLine();
 
 	}
 

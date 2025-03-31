@@ -7,7 +7,7 @@ public class Fournisseur : Utilisateur, IFournisseur
 	private string noFournisseur;
 	private static List<Fournisseur> fournisseurs = new List<Fournisseur>();
 
-	public Fournisseur(string nom, string prenom, string noFournisseur) : base(nom, prenom)
+	public Fournisseur(string prenom, string nom, string noFournisseur) : base(nom, prenom)
 	{
 		this.noFournisseur = noFournisseur;
 		fournisseurs.Add(this);
@@ -28,8 +28,8 @@ public class Fournisseur : Utilisateur, IFournisseur
 	public void ActionFournisseur()
 	{
 		Console.Clear();
-		Console.WriteLine("Bonjour {0} {1}, que voulez-vous faire?", prenom, nom);
-		Console.WriteLine("Effectuons l'approvisionnement");
+		Console.WriteLine("Bonjour {0} {1}, vous venez nous approvisionner?", prenom, nom);
+		Console.WriteLine("Effectuons l'approvisionnement!");
 		EffectuerApprovisionnement();
 	}
 }

@@ -34,7 +34,7 @@ public class Client : Utilisateur
 	public void PasserCommande()
 	{
 		Console.Clear();
-		Console.WriteLine("Bonjour {0} {1}, choisissons ensembles les fleurs de votre commande.", prenom, nom);
+		Console.WriteLine("Choisissons ensembles les articles de votre commande, {0} {1}.", prenom, nom);
 		Console.WriteLine();
 		Commande commande = new Commande();
 		commande.SelectionDesArticles(this);

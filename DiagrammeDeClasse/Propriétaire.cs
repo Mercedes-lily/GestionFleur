@@ -23,7 +23,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		}
 		if (no[0] == 'V')
 		{
-			foreach (Vendeur c in Vendeur.getVendeurs())
+			foreach (Vendeur c in Vendeur.GetVendeurs())
 			{
 				if (c.NoVendeur == no)
 					return false;
@@ -170,7 +170,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		int attributionNonComplete = 0;
 		Console.WriteLine("Voici les commandes qui n'ont pas de vendeur attribué");
 		
-		foreach (Commande c in Commande.getListCommande())
+		foreach (Commande c in Commande.GetListCommande())
 		{
 			if (c.Vendeur == null)
 			{
@@ -186,7 +186,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 	//Recherche si le vendeur s/lectionne est une entr/e valide vendeur pour une commande
 	public bool RechercheVendeur(string str)
 	{
-		foreach (Commande c in Commande.getListCommande())
+		foreach (Commande c in Commande.GetListCommande())
 		{
 			if (c.No == int.Parse(str))
 			{
@@ -200,7 +200,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 	//Fonction qui permet de gérer les commandes (Annulation et Facturation)
 	public void GestionCommande()
 	{
-		if (Commande.getListCommande().Count() == 0)
+		if (Commande.GetListCommande().Count() == 0)
 		{
 			Console.WriteLine("Il n'y a aucune commande active");
 			return;
@@ -228,7 +228,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 	{
 		string reponse;
 		Console.WriteLine("Voici la liste des commandes");
-		foreach (Commande c in Commande.getListCommande())
+		foreach (Commande c in Commande.GetListCommande())
 			Console.WriteLine(c.No);
 		while (true)
 		{
@@ -236,7 +236,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
-			foreach (Commande c in Commande.getListCommande())
+			foreach (Commande c in Commande.GetListCommande())
 			{
 				if (Convert.ToInt32(reponse) == c.No)
 				{
@@ -254,7 +254,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		string reponse;
 		int aFacturer = 0;
 		Console.WriteLine("Voici la liste des commandes non Facturé");
-		foreach (Commande c in Commande.getListCommande())
+		foreach (Commande c in Commande.GetListCommande())
 		{
 			if (c.FactureClient.PaiementEffectue == false)
 			{
@@ -273,11 +273,11 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 			reponse = Console.ReadLine().Trim(' ');
 			if (reponse == "N" || reponse == "n")
 				return;
-			foreach (Commande c in Commande.getListCommande())
+			foreach (Commande c in Commande.GetListCommande())
 			{
 				if (Convert.ToInt32(reponse) == c.No && c.FactureClient.PaiementEffectue == false)
 				{
-					c.GenererFactureClient();
+					c.ProcesserFactureClient();
 					return;
 				}
 			}
@@ -322,7 +322,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
 		Console.WriteLine("Enregistrement des données des Vendeurs");
-		ClientJSON = JsonNet.Serialize(Vendeur.getVendeurs());
+		ClientJSON = JsonNet.Serialize(Vendeur.GetVendeurs());
 		using (StreamWriter writer = new StreamWriter(PathFile))
 		{
 			writer.Write(ClientJSON);
@@ -336,7 +336,7 @@ public class Proprietaire : Utilisateur, IFournisseur, IVendeur
 		if (!File.Exists(PathFile))
 			File.Create(PathFile);
 		Console.WriteLine("Enregistrement des données des commmandes");
-		string ClientJSON = JsonNet.Serialize(Commande.getListCommande());
+		string ClientJSON = JsonNet.Serialize(Commande.GetListCommande());
 		using (StreamWriter writer = new StreamWriter(PathFile))
 		{
 			writer.Write(ClientJSON);
